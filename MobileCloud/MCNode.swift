@@ -11,29 +11,25 @@ import MultipeerConnectivity
 
 open class MCNode: CustomStringConvertible, Hashable, Equatable {
 
-    open fileprivate(set) var nodeID: String
     open fileprivate(set) var nodeName: String
     open fileprivate(set) var mcPeerID: MCPeerID
     open var hashValue: Int
     
-    public init(_ ID:String, name:String, mcPeerID:MCPeerID){
-        self.nodeID = ID
+    public init(_ name:String, mcPeerID:MCPeerID){
         self.nodeName = name
         self.mcPeerID = mcPeerID
-        self.hashValue = ID.hash
+        self.hashValue = name.hash
     }
     
     open var description: String {
-        return nodeName + " " + nodeID
+        return nodeName
     }
     
     static func getMe() -> MCNode {
-        print(session.myPeerID.displayName )
-        return MCNode(myName!.components(separatedBy: ID_DELIMITER)[1], name: myName!.components(separatedBy: ID_DELIMITER)[0], mcPeerID: (session.myPeerID))
+        return MCNode(myName, mcPeerID: session.myPeerID)
     }
 }
 
-
 public func ==(lhs:MCNode, rhs:MCNode) -> Bool{
-    return lhs.nodeID == rhs.nodeID
+    return lhs.hashValue == rhs.hashValue
 }

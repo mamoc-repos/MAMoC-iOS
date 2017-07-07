@@ -7,11 +7,50 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B7560391F06948000A09DC3 /* CloudletJob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7560381F06948000A09DC3 /* CloudletJob.swift */; };
 		8B7A241E1EBE7F8300F936D7 /* DeviceProfiler.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 8B7A241D1EBE7F8300F936D7 /* DeviceProfiler.xcdatamodel */; };
 		8B7A24201EBE80A500F936D7 /* MCCoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7A241F1EBE80A500F936D7 /* MCCoding.swift */; };
 		8B7A24251EBE8C9700F936D7 /* MCStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B7A24241EBE8C9700F936D7 /* MCStoryboard.storyboard */; };
 		8B8377481EF5E1940030984F /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8377471EF5E1940030984F /* Utils.swift */; };
 		8B8387F51EF89CEF0030984F /* (null) in CopyFiles */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8BA41C241EFB413100CE6D07 /* Luminous.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA41C221EFB413100CE6D07 /* Luminous.swift */; };
+		8BA41C251EFB413100CE6D07 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA41C231EFB413100CE6D07 /* Reachability.swift */; };
+		8BA41C291EFB488000CE6D07 /* SystemServices.h in Headers */ = {isa = PBXBuildFile; fileRef = 8BA41C271EFB488000CE6D07 /* SystemServices.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8BA41C2A1EFB488000CE6D07 /* SystemServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA41C281EFB488000CE6D07 /* SystemServices.m */; };
+		8BA41C481EFB489200CE6D07 /* route.h in Headers */ = {isa = PBXBuildFile; fileRef = 8BA41C2B1EFB489200CE6D07 /* route.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8BA41C491EFB489200CE6D07 /* SSAccelerometerInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 8BA41C2C1EFB489200CE6D07 /* SSAccelerometerInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8BA41C4A1EFB489200CE6D07 /* SSAccelerometerInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA41C2D1EFB489200CE6D07 /* SSAccelerometerInfo.m */; };
+		8BA41C4B1EFB489200CE6D07 /* SSAccessoryInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 8BA41C2E1EFB489200CE6D07 /* SSAccessoryInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8BA41C4C1EFB489200CE6D07 /* SSAccessoryInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA41C2F1EFB489200CE6D07 /* SSAccessoryInfo.m */; };
+		8BA41C4D1EFB489200CE6D07 /* SSApplicationInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 8BA41C301EFB489200CE6D07 /* SSApplicationInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8BA41C4E1EFB489200CE6D07 /* SSApplicationInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA41C311EFB489200CE6D07 /* SSApplicationInfo.m */; };
+		8BA41C4F1EFB489200CE6D07 /* SSBatteryInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 8BA41C321EFB489200CE6D07 /* SSBatteryInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8BA41C501EFB489200CE6D07 /* SSBatteryInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA41C331EFB489200CE6D07 /* SSBatteryInfo.m */; };
+		8BA41C511EFB489200CE6D07 /* SSCarrierInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 8BA41C341EFB489200CE6D07 /* SSCarrierInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8BA41C521EFB489200CE6D07 /* SSCarrierInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA41C351EFB489200CE6D07 /* SSCarrierInfo.m */; };
+		8BA41C531EFB489200CE6D07 /* SSDiskInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 8BA41C361EFB489200CE6D07 /* SSDiskInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8BA41C541EFB489200CE6D07 /* SSDiskInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA41C371EFB489200CE6D07 /* SSDiskInfo.m */; };
+		8BA41C551EFB489200CE6D07 /* SSHardwareInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 8BA41C381EFB489200CE6D07 /* SSHardwareInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8BA41C561EFB489200CE6D07 /* SSHardwareInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA41C391EFB489200CE6D07 /* SSHardwareInfo.m */; };
+		8BA41C571EFB489200CE6D07 /* SSJailbreakCheck.h in Headers */ = {isa = PBXBuildFile; fileRef = 8BA41C3A1EFB489200CE6D07 /* SSJailbreakCheck.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8BA41C581EFB489200CE6D07 /* SSJailbreakCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA41C3B1EFB489200CE6D07 /* SSJailbreakCheck.m */; };
+		8BA41C591EFB489200CE6D07 /* SSLocalizationInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 8BA41C3C1EFB489200CE6D07 /* SSLocalizationInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8BA41C5A1EFB489200CE6D07 /* SSLocalizationInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA41C3D1EFB489200CE6D07 /* SSLocalizationInfo.m */; };
+		8BA41C5B1EFB489200CE6D07 /* SSMemoryInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 8BA41C3E1EFB489200CE6D07 /* SSMemoryInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8BA41C5C1EFB489200CE6D07 /* SSMemoryInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA41C3F1EFB489200CE6D07 /* SSMemoryInfo.m */; };
+		8BA41C5D1EFB489200CE6D07 /* SSNetworkInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 8BA41C401EFB489200CE6D07 /* SSNetworkInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8BA41C5E1EFB489200CE6D07 /* SSNetworkInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA41C411EFB489200CE6D07 /* SSNetworkInfo.m */; };
+		8BA41C5F1EFB489200CE6D07 /* SSProcessInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 8BA41C421EFB489200CE6D07 /* SSProcessInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8BA41C601EFB489200CE6D07 /* SSProcessInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA41C431EFB489200CE6D07 /* SSProcessInfo.m */; };
+		8BA41C611EFB489200CE6D07 /* SSProcessorInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 8BA41C441EFB489200CE6D07 /* SSProcessorInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8BA41C621EFB489200CE6D07 /* SSProcessorInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA41C451EFB489200CE6D07 /* SSProcessorInfo.m */; };
+		8BA41C631EFB489200CE6D07 /* SSUUID.h in Headers */ = {isa = PBXBuildFile; fileRef = 8BA41C461EFB489200CE6D07 /* SSUUID.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8BA41C641EFB489200CE6D07 /* SSUUID.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA41C471EFB489200CE6D07 /* SSUUID.m */; };
+		8BA41C681EFD8B3A00CE6D07 /* SwiftEventBus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA41C671EFD8B3A00CE6D07 /* SwiftEventBus.swift */; };
+		8BA41C771EFDCF2D00CE6D07 /* SSLSecurity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA41C751EFDCF2D00CE6D07 /* SSLSecurity.swift */; };
+		8BA41C781EFDCF2D00CE6D07 /* WebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA41C761EFDCF2D00CE6D07 /* WebSocket.swift */; };
+		8BA41C7E1EFEC3F200CE6D07 /* PeerKit+cloudlet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA41C7D1EFEC3F200CE6D07 /* PeerKit+cloudlet.swift */; };
+		8BA41C801EFEC48200CE6D07 /* Cloudlet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA41C7F1EFEC48200CE6D07 /* Cloudlet.swift */; };
 		8BD275A11EBBFA1900C89F0F /* MobileCloud.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BD275971EBBFA1900C89F0F /* MobileCloud.framework */; };
 		8BD275A81EBBFA1900C89F0F /* MobileCloud.h in Headers */ = {isa = PBXBuildFile; fileRef = 8BD2759A1EBBFA1900C89F0F /* MobileCloud.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8BD276211EBE09FB00C89F0F /* MobileCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD275B51EBCC16F00C89F0F /* MobileCloud.swift */; };
@@ -24,7 +63,7 @@
 		8BD276281EBE09FB00C89F0F /* Advertiser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD275CD1EBCFB6400C89F0F /* Advertiser.swift */; };
 		8BD276291EBE09FB00C89F0F /* Browser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD275CE1EBCFB6400C89F0F /* Browser.swift */; };
 		8BD2762A1EBE09FB00C89F0F /* PeerKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD275CF1EBCFB6400C89F0F /* PeerKit.swift */; };
-		8BD2762B1EBE09FB00C89F0F /* OffloadingSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD275D71EBD26E600C89F0F /* OffloadingSettings.swift */; };
+		8BD2762B1EBE09FB00C89F0F /* MCConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD275D71EBD26E600C89F0F /* MCConfig.swift */; };
 		8BD2762C1EBE0A2800C89F0F /* MCTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD275D51EBD1EA300C89F0F /* MCTimer.swift */; };
 		8BD2762F1EBE4F5900C89F0F /* NodesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD2762E1EBE4F5900C89F0F /* NodesTableViewController.swift */; };
 /* End PBXBuildFile section */
@@ -53,10 +92,49 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8B7560381F06948000A09DC3 /* CloudletJob.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudletJob.swift; sourceTree = "<group>"; };
 		8B7A241D1EBE7F8300F936D7 /* DeviceProfiler.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DeviceProfiler.xcdatamodel; sourceTree = "<group>"; };
 		8B7A241F1EBE80A500F936D7 /* MCCoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCCoding.swift; sourceTree = "<group>"; };
 		8B7A24241EBE8C9700F936D7 /* MCStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MCStoryboard.storyboard; sourceTree = "<group>"; };
 		8B8377471EF5E1940030984F /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		8BA41C221EFB413100CE6D07 /* Luminous.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Luminous.swift; sourceTree = "<group>"; };
+		8BA41C231EFB413100CE6D07 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		8BA41C271EFB488000CE6D07 /* SystemServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemServices.h; sourceTree = "<group>"; };
+		8BA41C281EFB488000CE6D07 /* SystemServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SystemServices.m; sourceTree = "<group>"; };
+		8BA41C2B1EFB489200CE6D07 /* route.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = route.h; sourceTree = "<group>"; };
+		8BA41C2C1EFB489200CE6D07 /* SSAccelerometerInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSAccelerometerInfo.h; sourceTree = "<group>"; };
+		8BA41C2D1EFB489200CE6D07 /* SSAccelerometerInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSAccelerometerInfo.m; sourceTree = "<group>"; };
+		8BA41C2E1EFB489200CE6D07 /* SSAccessoryInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSAccessoryInfo.h; sourceTree = "<group>"; };
+		8BA41C2F1EFB489200CE6D07 /* SSAccessoryInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSAccessoryInfo.m; sourceTree = "<group>"; };
+		8BA41C301EFB489200CE6D07 /* SSApplicationInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSApplicationInfo.h; sourceTree = "<group>"; };
+		8BA41C311EFB489200CE6D07 /* SSApplicationInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSApplicationInfo.m; sourceTree = "<group>"; };
+		8BA41C321EFB489200CE6D07 /* SSBatteryInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSBatteryInfo.h; sourceTree = "<group>"; };
+		8BA41C331EFB489200CE6D07 /* SSBatteryInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSBatteryInfo.m; sourceTree = "<group>"; };
+		8BA41C341EFB489200CE6D07 /* SSCarrierInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSCarrierInfo.h; sourceTree = "<group>"; };
+		8BA41C351EFB489200CE6D07 /* SSCarrierInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSCarrierInfo.m; sourceTree = "<group>"; };
+		8BA41C361EFB489200CE6D07 /* SSDiskInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSDiskInfo.h; sourceTree = "<group>"; };
+		8BA41C371EFB489200CE6D07 /* SSDiskInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSDiskInfo.m; sourceTree = "<group>"; };
+		8BA41C381EFB489200CE6D07 /* SSHardwareInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSHardwareInfo.h; sourceTree = "<group>"; };
+		8BA41C391EFB489200CE6D07 /* SSHardwareInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSHardwareInfo.m; sourceTree = "<group>"; };
+		8BA41C3A1EFB489200CE6D07 /* SSJailbreakCheck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSJailbreakCheck.h; sourceTree = "<group>"; };
+		8BA41C3B1EFB489200CE6D07 /* SSJailbreakCheck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSJailbreakCheck.m; sourceTree = "<group>"; };
+		8BA41C3C1EFB489200CE6D07 /* SSLocalizationInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSLocalizationInfo.h; sourceTree = "<group>"; };
+		8BA41C3D1EFB489200CE6D07 /* SSLocalizationInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSLocalizationInfo.m; sourceTree = "<group>"; };
+		8BA41C3E1EFB489200CE6D07 /* SSMemoryInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSMemoryInfo.h; sourceTree = "<group>"; };
+		8BA41C3F1EFB489200CE6D07 /* SSMemoryInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSMemoryInfo.m; sourceTree = "<group>"; };
+		8BA41C401EFB489200CE6D07 /* SSNetworkInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSNetworkInfo.h; sourceTree = "<group>"; };
+		8BA41C411EFB489200CE6D07 /* SSNetworkInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSNetworkInfo.m; sourceTree = "<group>"; };
+		8BA41C421EFB489200CE6D07 /* SSProcessInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSProcessInfo.h; sourceTree = "<group>"; };
+		8BA41C431EFB489200CE6D07 /* SSProcessInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSProcessInfo.m; sourceTree = "<group>"; };
+		8BA41C441EFB489200CE6D07 /* SSProcessorInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSProcessorInfo.h; sourceTree = "<group>"; };
+		8BA41C451EFB489200CE6D07 /* SSProcessorInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSProcessorInfo.m; sourceTree = "<group>"; };
+		8BA41C461EFB489200CE6D07 /* SSUUID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUUID.h; sourceTree = "<group>"; };
+		8BA41C471EFB489200CE6D07 /* SSUUID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUUID.m; sourceTree = "<group>"; };
+		8BA41C671EFD8B3A00CE6D07 /* SwiftEventBus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftEventBus.swift; sourceTree = "<group>"; };
+		8BA41C751EFDCF2D00CE6D07 /* SSLSecurity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSLSecurity.swift; sourceTree = "<group>"; };
+		8BA41C761EFDCF2D00CE6D07 /* WebSocket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebSocket.swift; sourceTree = "<group>"; };
+		8BA41C7D1EFEC3F200CE6D07 /* PeerKit+cloudlet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PeerKit+cloudlet.swift"; sourceTree = "<group>"; };
+		8BA41C7F1EFEC48200CE6D07 /* Cloudlet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cloudlet.swift; sourceTree = "<group>"; };
 		8BD275971EBBFA1900C89F0F /* MobileCloud.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MobileCloud.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BD2759A1EBBFA1900C89F0F /* MobileCloud.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MobileCloud.h; sourceTree = "<group>"; };
 		8BD2759B1EBBFA1900C89F0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -72,7 +150,7 @@
 		8BD275CE1EBCFB6400C89F0F /* Browser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Browser.swift; sourceTree = "<group>"; };
 		8BD275CF1EBCFB6400C89F0F /* PeerKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeerKit.swift; sourceTree = "<group>"; };
 		8BD275D51EBD1EA300C89F0F /* MCTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCTimer.swift; sourceTree = "<group>"; };
-		8BD275D71EBD26E600C89F0F /* OffloadingSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OffloadingSettings.swift; sourceTree = "<group>"; };
+		8BD275D71EBD26E600C89F0F /* MCConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCConfig.swift; sourceTree = "<group>"; };
 		8BD2762E1EBE4F5900C89F0F /* NodesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NodesTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -103,6 +181,7 @@
 				8BD275CD1EBCFB6400C89F0F /* Advertiser.swift */,
 				8BD275CE1EBCFB6400C89F0F /* Browser.swift */,
 				8BD275CF1EBCFB6400C89F0F /* PeerKit.swift */,
+				8BA41C7D1EFEC3F200CE6D07 /* PeerKit+cloudlet.swift */,
 			);
 			name = PeerKit;
 			sourceTree = "<group>";
@@ -110,14 +189,92 @@
 		8B8388461EF977F70030984F /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				8BD275B31EBCC0DE00C89F0F /* MCJob.swift */,
 				8BD275B71EBCC18100C89F0F /* MCNode.swift */,
+				8BD275B31EBCC0DE00C89F0F /* MCJob.swift */,
 				8BD275B91EBCC19100C89F0F /* MCTask.swift */,
 				8BD275C91EBCCBE900C89F0F /* MCResult.swift */,
 				8BD275D51EBD1EA300C89F0F /* MCTimer.swift */,
 				8B7A241F1EBE80A500F936D7 /* MCCoding.swift */,
+				8BA41C7F1EFEC48200CE6D07 /* Cloudlet.swift */,
+				8B7560381F06948000A09DC3 /* CloudletJob.swift */,
 			);
 			name = Classes;
+			sourceTree = "<group>";
+		};
+		8BA41C261EFB413800CE6D07 /* ThirdPartyLibs */ = {
+			isa = PBXGroup;
+			children = (
+				8B8388451EF977E80030984F /* PeerKit */,
+				8BA41C7C1EFE761E00CE6D07 /* Starscream */,
+				8BA41C7B1EFE761100CE6D07 /* Swift Event Bus */,
+				8BA41C7A1EFE760900CE6D07 /* Luminous */,
+				8BA41C791EFE75F800CE6D07 /* System Services */,
+			);
+			name = ThirdPartyLibs;
+			sourceTree = "<group>";
+		};
+		8BA41C791EFE75F800CE6D07 /* System Services */ = {
+			isa = PBXGroup;
+			children = (
+				8BA41C271EFB488000CE6D07 /* SystemServices.h */,
+				8BA41C281EFB488000CE6D07 /* SystemServices.m */,
+				8BA41C2B1EFB489200CE6D07 /* route.h */,
+				8BA41C2C1EFB489200CE6D07 /* SSAccelerometerInfo.h */,
+				8BA41C2D1EFB489200CE6D07 /* SSAccelerometerInfo.m */,
+				8BA41C2E1EFB489200CE6D07 /* SSAccessoryInfo.h */,
+				8BA41C2F1EFB489200CE6D07 /* SSAccessoryInfo.m */,
+				8BA41C301EFB489200CE6D07 /* SSApplicationInfo.h */,
+				8BA41C311EFB489200CE6D07 /* SSApplicationInfo.m */,
+				8BA41C321EFB489200CE6D07 /* SSBatteryInfo.h */,
+				8BA41C331EFB489200CE6D07 /* SSBatteryInfo.m */,
+				8BA41C341EFB489200CE6D07 /* SSCarrierInfo.h */,
+				8BA41C351EFB489200CE6D07 /* SSCarrierInfo.m */,
+				8BA41C361EFB489200CE6D07 /* SSDiskInfo.h */,
+				8BA41C371EFB489200CE6D07 /* SSDiskInfo.m */,
+				8BA41C381EFB489200CE6D07 /* SSHardwareInfo.h */,
+				8BA41C391EFB489200CE6D07 /* SSHardwareInfo.m */,
+				8BA41C3A1EFB489200CE6D07 /* SSJailbreakCheck.h */,
+				8BA41C3B1EFB489200CE6D07 /* SSJailbreakCheck.m */,
+				8BA41C3C1EFB489200CE6D07 /* SSLocalizationInfo.h */,
+				8BA41C3D1EFB489200CE6D07 /* SSLocalizationInfo.m */,
+				8BA41C3E1EFB489200CE6D07 /* SSMemoryInfo.h */,
+				8BA41C3F1EFB489200CE6D07 /* SSMemoryInfo.m */,
+				8BA41C401EFB489200CE6D07 /* SSNetworkInfo.h */,
+				8BA41C411EFB489200CE6D07 /* SSNetworkInfo.m */,
+				8BA41C421EFB489200CE6D07 /* SSProcessInfo.h */,
+				8BA41C431EFB489200CE6D07 /* SSProcessInfo.m */,
+				8BA41C441EFB489200CE6D07 /* SSProcessorInfo.h */,
+				8BA41C451EFB489200CE6D07 /* SSProcessorInfo.m */,
+				8BA41C461EFB489200CE6D07 /* SSUUID.h */,
+				8BA41C471EFB489200CE6D07 /* SSUUID.m */,
+			);
+			name = "System Services";
+			sourceTree = "<group>";
+		};
+		8BA41C7A1EFE760900CE6D07 /* Luminous */ = {
+			isa = PBXGroup;
+			children = (
+				8BA41C221EFB413100CE6D07 /* Luminous.swift */,
+				8BA41C231EFB413100CE6D07 /* Reachability.swift */,
+			);
+			name = Luminous;
+			sourceTree = "<group>";
+		};
+		8BA41C7B1EFE761100CE6D07 /* Swift Event Bus */ = {
+			isa = PBXGroup;
+			children = (
+				8BA41C671EFD8B3A00CE6D07 /* SwiftEventBus.swift */,
+			);
+			name = "Swift Event Bus";
+			sourceTree = "<group>";
+		};
+		8BA41C7C1EFE761E00CE6D07 /* Starscream */ = {
+			isa = PBXGroup;
+			children = (
+				8BA41C751EFDCF2D00CE6D07 /* SSLSecurity.swift */,
+				8BA41C761EFDCF2D00CE6D07 /* WebSocket.swift */,
+			);
+			name = Starscream;
 			sourceTree = "<group>";
 		};
 		8BD2758D1EBBFA1900C89F0F = {
@@ -141,14 +298,14 @@
 			isa = PBXGroup;
 			children = (
 				8BD275B51EBCC16F00C89F0F /* MobileCloud.swift */,
-				8B8388461EF977F70030984F /* Classes */,
-				8B8388451EF977E80030984F /* PeerKit */,
-				8BD275D71EBD26E600C89F0F /* OffloadingSettings.swift */,
-				8B7A241D1EBE7F8300F936D7 /* DeviceProfiler.xcdatamodel */,
-				8BD275BB1EBCC32300C89F0F /* Supporting Files */,
-				8BD2762E1EBE4F5900C89F0F /* NodesTableViewController.swift */,
 				8B7A24241EBE8C9700F936D7 /* MCStoryboard.storyboard */,
 				8B8377471EF5E1940030984F /* Utils.swift */,
+				8BD2762E1EBE4F5900C89F0F /* NodesTableViewController.swift */,
+				8B8388461EF977F70030984F /* Classes */,
+				8BD275D71EBD26E600C89F0F /* MCConfig.swift */,
+				8B7A241D1EBE7F8300F936D7 /* DeviceProfiler.xcdatamodel */,
+				8BA41C261EFB413800CE6D07 /* ThirdPartyLibs */,
+				8BD275BB1EBCC32300C89F0F /* Supporting Files */,
 			);
 			path = MobileCloud;
 			sourceTree = "<group>";
@@ -169,7 +326,23 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BA41C551EFB489200CE6D07 /* SSHardwareInfo.h in Headers */,
+				8BA41C591EFB489200CE6D07 /* SSLocalizationInfo.h in Headers */,
+				8BA41C631EFB489200CE6D07 /* SSUUID.h in Headers */,
+				8BA41C5F1EFB489200CE6D07 /* SSProcessInfo.h in Headers */,
+				8BA41C491EFB489200CE6D07 /* SSAccelerometerInfo.h in Headers */,
+				8BA41C4B1EFB489200CE6D07 /* SSAccessoryInfo.h in Headers */,
+				8BA41C4F1EFB489200CE6D07 /* SSBatteryInfo.h in Headers */,
+				8BA41C481EFB489200CE6D07 /* route.h in Headers */,
+				8BA41C5B1EFB489200CE6D07 /* SSMemoryInfo.h in Headers */,
 				8BD275A81EBBFA1900C89F0F /* MobileCloud.h in Headers */,
+				8BA41C611EFB489200CE6D07 /* SSProcessorInfo.h in Headers */,
+				8BA41C291EFB488000CE6D07 /* SystemServices.h in Headers */,
+				8BA41C571EFB489200CE6D07 /* SSJailbreakCheck.h in Headers */,
+				8BA41C531EFB489200CE6D07 /* SSDiskInfo.h in Headers */,
+				8BA41C5D1EFB489200CE6D07 /* SSNetworkInfo.h in Headers */,
+				8BA41C4D1EFB489200CE6D07 /* SSApplicationInfo.h in Headers */,
+				8BA41C511EFB489200CE6D07 /* SSCarrierInfo.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,10 +459,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				8BD2762C1EBE0A2800C89F0F /* MCTimer.swift in Sources */,
+				8BA41C801EFEC48200CE6D07 /* Cloudlet.swift in Sources */,
 				8BD276211EBE09FB00C89F0F /* MobileCloud.swift in Sources */,
+				8B7560391F06948000A09DC3 /* CloudletJob.swift in Sources */,
 				8BD276221EBE09FB00C89F0F /* MCJob.swift in Sources */,
 				8B7A241E1EBE7F8300F936D7 /* DeviceProfiler.xcdatamodel in Sources */,
+				8BA41C581EFB489200CE6D07 /* SSJailbreakCheck.m in Sources */,
+				8BA41C521EFB489200CE6D07 /* SSCarrierInfo.m in Sources */,
+				8BA41C7E1EFEC3F200CE6D07 /* PeerKit+cloudlet.swift in Sources */,
 				8B7A24201EBE80A500F936D7 /* MCCoding.swift in Sources */,
+				8BA41C4A1EFB489200CE6D07 /* SSAccelerometerInfo.m in Sources */,
+				8BA41C541EFB489200CE6D07 /* SSDiskInfo.m in Sources */,
 				8BD276231EBE09FB00C89F0F /* MCNode.swift in Sources */,
 				8BD276241EBE09FB00C89F0F /* MCTask.swift in Sources */,
 				8B8377481EF5E1940030984F /* Utils.swift in Sources */,
@@ -297,10 +477,26 @@
 				8BD276261EBE09FB00C89F0F /* Session.swift in Sources */,
 				8BD2762F1EBE4F5900C89F0F /* NodesTableViewController.swift in Sources */,
 				8BD276271EBE09FB00C89F0F /* Transceiver.swift in Sources */,
+				8BA41C641EFB489200CE6D07 /* SSUUID.m in Sources */,
 				8BD276281EBE09FB00C89F0F /* Advertiser.swift in Sources */,
+				8BA41C241EFB413100CE6D07 /* Luminous.swift in Sources */,
+				8BA41C5A1EFB489200CE6D07 /* SSLocalizationInfo.m in Sources */,
+				8BA41C561EFB489200CE6D07 /* SSHardwareInfo.m in Sources */,
+				8BA41C771EFDCF2D00CE6D07 /* SSLSecurity.swift in Sources */,
+				8BA41C251EFB413100CE6D07 /* Reachability.swift in Sources */,
+				8BA41C601EFB489200CE6D07 /* SSProcessInfo.m in Sources */,
+				8BA41C5C1EFB489200CE6D07 /* SSMemoryInfo.m in Sources */,
+				8BA41C781EFDCF2D00CE6D07 /* WebSocket.swift in Sources */,
+				8BA41C5E1EFB489200CE6D07 /* SSNetworkInfo.m in Sources */,
+				8BA41C501EFB489200CE6D07 /* SSBatteryInfo.m in Sources */,
 				8BD276291EBE09FB00C89F0F /* Browser.swift in Sources */,
+				8BA41C2A1EFB488000CE6D07 /* SystemServices.m in Sources */,
+				8BA41C4C1EFB489200CE6D07 /* SSAccessoryInfo.m in Sources */,
+				8BA41C681EFD8B3A00CE6D07 /* SwiftEventBus.swift in Sources */,
 				8BD2762A1EBE09FB00C89F0F /* PeerKit.swift in Sources */,
-				8BD2762B1EBE09FB00C89F0F /* OffloadingSettings.swift in Sources */,
+				8BA41C4E1EFB489200CE6D07 /* SSApplicationInfo.m in Sources */,
+				8BA41C621EFB489200CE6D07 /* SSProcessorInfo.m in Sources */,
+				8BD2762B1EBE09FB00C89F0F /* MCConfig.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,6 +515,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -373,6 +570,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -419,6 +617,7 @@
 		8BD275AC1EBBFA1900C89F0F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
@@ -441,6 +640,7 @@
 		8BD275AD1EBBFA1900C89F0F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;

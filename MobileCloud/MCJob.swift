@@ -44,5 +44,4 @@ open class MCJob {
     open func onLog(_ format:String) {
         
     }
-    
 }

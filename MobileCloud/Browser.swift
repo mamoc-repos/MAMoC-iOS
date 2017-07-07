@@ -13,19 +13,14 @@ let timeStarted = NSDate()
 class Browser: NSObject, MCNearbyServiceBrowserDelegate {
 //    let displayName: String
     let mcSession: MCSession
-
+    
     init(mcSession: MCSession) {
         self.mcSession = mcSession
         super.init()
     }
     
     var mcBrowser: MCNearbyServiceBrowser?
-
-//    init(displayName: String) {
-//        self.displayName = displayName
-//        super.init()
-//    }
-
+    var MCDelegate: MCManagerDelegate?
 
     func startBrowsing(_ serviceType: String) {
         mcBrowser = MCNearbyServiceBrowser(peer: mcSession.myPeerID, serviceType: serviceType)
@@ -57,15 +52,14 @@ class Browser: NSObject, MCNearbyServiceBrowserDelegate {
 //            debugPrint("\tBrowser NOT sending invitePeer")
 //        }
         
+        MCDelegate?.foundPeer()
         browser.invitePeer(peerID, to: mcSession, withContext: nil, timeout: 30)
 
     }
 
     func browser(_ browser: MCNearbyServiceBrowser, lostPeer peerID: MCPeerID) {
-//        guard displayName != peerID.displayName else {
-//            return
-//        }
         
+        MCDelegate?.lostPeer()
         debugPrint("\tBrowser \(browser.myPeerID.displayName) lost peer \(peerID.displayName)")
     }
 

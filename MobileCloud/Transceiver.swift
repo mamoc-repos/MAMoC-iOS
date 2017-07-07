@@ -21,11 +21,6 @@ open class Transceiver: SessionDelegate {
     let displayName: String
     
     public init(displayName: String!) {
-//        self.displayName = displayName
-//        advertiser = Advertiser(displayName: displayName)
-//        browser = Browser(displayName: displayName)
-//        PeerKit.session.delegate = self
-        
         self.displayName = displayName
         session = Session(displayName: displayName, delegate: nil)
         advertiser = Advertiser(mcSession: session.mcSession)
@@ -42,10 +37,7 @@ open class Transceiver: SessionDelegate {
         session.delegate = nil
         advertiser.stopAdvertising()
         browser.stopBrowsing()
-   //     PeerKit.session.disconnect(displayName)
         session.disconnect()
-
-        NSLog("Disconnecting from transceiver.")
     }
 
     func startAdvertising(serviceType: String, discoveryInfo: [String: String]? = nil) {
@@ -90,9 +82,11 @@ open class Transceiver: SessionDelegate {
                 if let object = dict["object"] {
                     DispatchQueue.main.async {
                         if let onEvent = onEvent {
+                            print(onEvent)
                             onEvent(peer, event, object)
                         }
                         if let eventBlock = eventBlocks[event] {
+                            print(eventBlock)
                             eventBlock(peer, object)
                         }
                     }

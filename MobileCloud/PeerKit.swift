@@ -33,44 +33,28 @@ import MultipeerConnectivity
 
     // MARK: PeerKit Globals
 
-    let ID_DELIMITER: String = "\t"
+//    let ID_DELIMITER: String = "\t"
 
     #if os(iOS)
         // Use the device name, along with the UUID for the device separated by a tab character
         let name = UIDevice.current.name
         let id = UIDevice.current.identifierForVendor!.uuidString
-        public let myName = String(name + ID_DELIMITER + id)
+        public let myName = name
+            //+ ID_DELIMITER + id)
     #elseif os(OSX)
         let name = NSHost.currentHost().localizedName ?? ""
         let id = NSHost.currentHost().address
-        public let myName = String(name + ID_DELIMITER + id)
+        public let myName = name
+            //+ ID_DELIMITER + id)
     #endif
 
     public var transceiver = Transceiver(displayName: myName)
-//    static open var session: Session = Session(displayName: myName!, delegate: nil)
+//  static open var session: Session = Session(displayName: myName!, delegate: nil)
     public var session = transceiver.session.mcSession
+
         //Session(displayName: myName!, delegate: nil)
 
     // MARK: Event Handling
-
-    // MARK: Advertise/Browse
-    
-//    public func transceive(serviceType: String, discoveryInfo: [String: String]? = nil) {
-//        transceiver.startTransceiving(serviceType: serviceType, discoveryInfo: discoveryInfo)
-//    }
-//    
-//    public func advertise(serviceType: String, discoveryInfo: [String: String]? = nil) {
-//        transceiver.startAdvertising(serviceType: serviceType, discoveryInfo: discoveryInfo)
-//    }
-//    
-//    public func browse(serviceType: String) {
-//        transceiver.startBrowsing(serviceType: serviceType)
-//    }
-//    
-//    public func stopTransceiving() {
-//        transceiver.stopTransceiving()
-//        session = nil
-//    }
 
     // MARK: Events
 

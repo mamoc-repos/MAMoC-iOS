@@ -9,78 +9,54 @@
 import Foundation
 import MultipeerConnectivity
 
-//@objc public protocol MCManagerDelegate {
-//    @objc optional func foundPeer()
-//    @objc optional func lostPeer()
-//    @objc optional func invitationWasReceived(_ fromPeer: String)
-//    //  func connectedWithPeer(peerID: MCPeerID)
-//    @objc optional func sessionDidChangeState()
-//    @objc optional func updateLog(_ text: String)
-//    @objc optional func resourceReceived(_ localUrl: URL, name: String, time: Double)
-//}
+protocol MCManagerDelegate {
+    func foundPeer()
+    func lostPeer()
+    func sessionDidChange()
+}
 
 open class MobileCloud {
     open static let MCInstance = MobileCloud() // singleton
     
-    public static let nodesTVC = NodesTableViewController()
     fileprivate var job: MCJob = MCJob()
+    fileprivate var cloudletJob: CloudletJob = CloudletJob()
     
-    open var peerName = MCNode.getMe().nodeName
+    // used to time stuff
+    fileprivate let processTaskTimer:MCTimer = MCTimer()
+    fileprivate let executionTimer:MCTimer = MCTimer()
+    fileprivate let mergeResultsTimer:MCTimer = MCTimer()
     
-    let urlString = "http://carrotapps.com/iosmysql.php"
-    
-    fileprivate var result = NSMutableDictionary()
-    fileprivate var totalTime = 0.0
-    fileprivate var numberOfNodesPerTask = 0
-    open var invitationHandler: ((Bool, MCSession) -> Void)!
-    
-    open var powerfulPeers = [MCPeerID]()
-    open var foundPeers = [MCPeerID]()
-
-//    open var connectedPeers: [MCPeerID] {
-//        get {
-//            return PeerKit.session.allConnectedPeers()
-//        }
-//    }
-//    
-//    open var connectingPeers: [MCPeerID] {
-//        get {
-//            return connectingPeersDictionary.allValues as! [MCPeerID]
-//        }
-//    }
-//
-//    open var disconnectedPeers: [MCPeerID] {
-//        get {
-//            return disconnectedPeersDictionary.allValues as! [MCPeerID]
-//        }
-//    }
-    
-    fileprivate var timer: CFAbsoluteTime!
-    open var startTime: CFAbsoluteTime!
-//    open var delegate: MCManagerDelegate?
+    public var PeerName = MCNode.getMe().nodeName
     
     public var connectedNodes: [MCNode] {
         var nodes: [MCNode] = []
         
         let mcPeerIDs: [MCPeerID] = (session.connectedPeers)
         for peerID in mcPeerIDs {
-            nodes.append(MCNode(peerID.displayName.components(separatedBy: ID_DELIMITER)[1], name: peerID.displayName.components(separatedBy: ID_DELIMITER)[0], mcPeerID: peerID))
+            nodes.append(MCNode(peerID.displayName, mcPeerID: peerID))
         }
         return nodes
     }
     
-    var allNodes: [MCNode] { return [MCNode.getMe()] + connectedNodes }
+    var allLocalNodes: [MCNode] { return [MCNode.getMe()] + connectedNodes }
+
+    // TODO: create session to manage multiple cloudlets
+    // open var allCloudlets: [Cloudlet]
     
+    public var cloudletInstance: Cloudlet!
+
     // MARK: Start
     public func start() {
+        // for nearby iOS devices
         let ServiceType:String = "MC2017"
-            //+ String(job.id())
         self.MCLog("Searching for peers with service type " + ServiceType)
         transceiver.startTransceiving(serviceType: ServiceType)
+        
+        // for cloudlet connection
+        cloudletInstance = Cloudlet(name: "cloudlet")
     }
     
     fileprivate func MCLog(_ format:String) {
-        NSLog(format)
         job.onLog(format)
     }
     
@@ -90,15 +66,13 @@ open class MobileCloud {
     
     public func setJob(job: MCJob){
         self.job = job
-        
-   //     start()
-        
+                
         // When a peer connects, log the connection and delegate to the tool
         onConnect = { (myPeerID: MCPeerID, connectedpeerID: MCPeerID) -> Void in
             let selfNode:MCNode = MCNode.getMe()
-            let peerNode:MCNode = MCNode(connectedpeerID.displayName.components(separatedBy: ID_DELIMITER)[1], name: connectedpeerID.displayName.components(separatedBy: ID_DELIMITER)[0], mcPeerID: connectedpeerID)
+            let peerNode:MCNode = MCNode(connectedpeerID.displayName, mcPeerID: connectedpeerID)
             
-            //    // make sure this is you!
+            // make sure this is you!
             if(myPeerID != selfNode.mcPeerID) {
                 self.MCLog("ERROR: Node id: " + selfNode.mcPeerID.displayName + " does not match peerID: " + myPeerID.displayName + ".")
             }
@@ -110,10 +84,9 @@ open class MobileCloud {
         // When a peer disconnects, log the disconnection and delegate to the tool
         onDisconnect = { (myPeerID: MCPeerID, disconnectedpeerID: MCPeerID) -> Void in
             let selfNode:MCNode = MCNode.getMe()
-            let peerNode:MCNode = MCNode(disconnectedpeerID.displayName.components(separatedBy: ID_DELIMITER)[1], name: disconnectedpeerID.displayName.components(separatedBy: ID_DELIMITER)[0], mcPeerID: disconnectedpeerID)
+            let peerNode:MCNode = MCNode(disconnectedpeerID.displayName, mcPeerID: disconnectedpeerID)
             
             // make sure this is you!
-            //guard myPeerID == selfNode.mcPeerID else { throw FogMachineError.PeerIDError }
             if(myPeerID != selfNode.mcPeerID) {
                 self.MCLog("ERROR: Node id: " + selfNode.mcPeerID.displayName + " does not match peerID: " + myPeerID.displayName + ".")
             }
@@ -128,7 +101,7 @@ open class MobileCloud {
             // run on background thread
             DispatchQueue.global(qos: DispatchQoS.QoSClass.utility).async {
                 let selfNode:MCNode = MCNode.getMe()
-                let fromNode:MCNode = MCNode(fromPeerID.displayName.components(separatedBy: ID_DELIMITER)[1], name: fromPeerID.displayName.components(separatedBy: ID_DELIMITER)[0], mcPeerID: fromPeerID)
+                let fromNode:MCNode = MCNode(fromPeerID.displayName, mcPeerID: fromPeerID)
                 
                 // deserialize the work
                 let dataReceived = NSKeyedUnarchiver.unarchiveObject(with: object as! Data) as! [String: NSObject]
@@ -140,13 +113,13 @@ open class MobileCloud {
                 self.MCLog(selfNode.description + " received \(workMirror.subjectType) to process from " + fromNode.description + " for session " + sessionUUID + ".  Starting to process work.")
                 
                 // process the work, and get a result
-                processTaskTimer.start()
+                self.processTaskTimer.start()
                 let peerResult:MCResult = self.job.executeTask(fromNode, fromNode: fromNode, task: peerTask)
-                processTaskTimer.stop()
+                self.processTaskTimer.stop()
                 
                 let dataToSend:[String:NSObject] =
                     ["MCResult": NSKeyedArchiver.archivedData(withRootObject: peerResult) as NSObject,
-                     "processTaskTimer": processTaskTimer.getElapsedTimeInSeconds() as NSObject,
+                     "processTaskTimer": self.processTaskTimer.getElapsedTimeInSeconds() as NSObject,
                      "SessionID": sessionUUID as NSObject]
                 
                 let peerResultMirror = Mirror(reflecting: peerResult)
@@ -158,18 +131,78 @@ open class MobileCloud {
                 self.MCLog("Sent result.")
             }
         }
+        
+        onCloudletConnect = { (myPeerID: MCPeerID, cloudlet: Cloudlet) -> Void in
+            let selfNode:MCNode = MCNode.getMe()
+            let cloudletNode:Cloudlet = Cloudlet(name:cloudlet.displayName)
+            
+            // make sure this is you!
+            if(myPeerID != selfNode.mcPeerID) {
+                self.MCLog("ERROR: Node id: " + selfNode.mcPeerID.displayName + " does not match peerID: " + myPeerID.displayName + ".")
+            }
+            
+            self.MCLog(selfNode.description + " connected to " + cloudletNode.displayName)
+        }
     }
     
-    /**
-     
-     Runs your FMTool.  Your app should call this.
-     
+    /*
+    MARK: Custom app should call this method.
      */
-    public func execute() -> Void {
-        // run on background thread
-        DispatchQueue.global(qos: DispatchQoS.QoSClass.utility).async {
-            self.executeOnThread(self.allNodes)
+    public func execute(type: OffloadingType) -> Void {
+        
+        switch type {
+            
+        case .local:
+            // run on background thread
+            DispatchQueue.global(qos: DispatchQoS.QoSClass.utility).async {
+                self.executeOnThread(self.allLocalNodes)
+            }
+            break
+    
+        case .cloudlet:
+            DispatchQueue.global(qos: DispatchQoS.QoSClass.utility).async {
+                self.executeOnCloudlet()
+            }
+            break
+    
+        case .remote:
+            self.executeOnRemote()
+            break
+        
+        case .auto:
+            break
+            
+            }
+    }
+    
+    public func getCloudletJob() -> CloudletJob{
+        return cloudletJob
+    }
+    
+    public func setCloudletJob(job: CloudletJob) {
+        self.cloudletJob = job
+    }
+    
+    func executeOnCloudlet(){
+        
+        let cloudletTask:MCTask = self.cloudletJob.initTask(cloudletInstance)
+        self.MCLog("Creating task for \(cloudletInstance.displayName)")
+        
+        self.cloudletJob.executeTask(cloudletInstance, task: cloudletTask)
+        self.MCLog("Sending task to \(cloudletInstance.displayName)")
+
+        webSocket.onText = { [unowned self] text in
+            guard let data = text.data(using: String.Encoding.utf8) else { return }
+            guard let js = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) as! NSDictionary else { return }
+            guard let result = js["result"] as? Int, let time = js["timeInSec"] as? Double
+                else { return }
+            
+            self.MCLog(self.cloudletInstance.displayName + " returned the result: \(result) in \(time) seconds")
         }
+    }
+    
+    func executeOnRemote(){
+        
     }
     
     /**
@@ -309,14 +342,15 @@ open class MobileCloud {
             }
             
             let status = finishAndMerge(MCNode.getMe(), sessionUUID: sessionUUID)
-//            // schedule the reprocessing stuff
-//            if(status == false) {
-//                let data:[String:NSObject] = ["SessionID": sessionUUID as NSObject, "SelfTimeToFinish":selfTimeToFinish as NSObject]
-//                DispatchQueue.main.async {
-//                    // wait the minTime before startinf to reprocess
-//                    Timer.scheduledTimer(timeInterval: self.minWaitTimeToStartReprocessingWorkInSeconds, target: self, selector: #selector(FogMachine.scheduleReprocessWork(_:)), userInfo: data, repeats: false)
-//                }
-//            }
+            // schedule the reprocessing stuff
+            if(status == false) {
+            //    let data:[String:NSObject] = ["SessionID": sessionUUID as NSObject, "SelfTimeToFinish":selfTimeToFinish as NSObject]
+                DispatchQueue.main.async {
+                    // wait the minTime before startinf to reprocess
+//                    Timer.scheduledTimer(timeInterval: self.minWaitTimeToStartReprocessingWorkInSeconds, target: self, selector: #selector(MobileCloud.scheduleReprocessWork(_:)), userInfo: data, repeats: false)
+                    debugPrint("work did not complete successfully. need to reprocess")
+                }
+            }
         }
     }
     
@@ -345,19 +379,4 @@ open class MobileCloud {
         }
         return status
     }
-    
-    public func stringForPeerConnectionState(_ state: MCSessionState) -> String {
-        switch state {
-            
-        case .connected:
-            return "Connected"
-            
-        case .notConnected:
-            return "Not Connected"
-            
-        default:
-            return "Connecting"
-        }
-    }
-
 }

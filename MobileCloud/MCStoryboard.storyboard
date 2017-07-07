@@ -5,38 +5,137 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Nearby Devices-->
-        <scene sceneID="KmJ-s4-F6V">
+        <!--Connections-->
+        <scene sceneID="AP1-ky-flh">
             <objects>
-                <tableViewController storyboardIdentifier="NodesTVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="S3p-Zj-iQx" customClass="NodesTableViewController" customModule="MobileCloud" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" id="tAe-DR-8Xg">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                <viewController storyboardIdentifier="NodesTVC" title="Connections" id="WFk-ne-qdb" customClass="NodesTableViewController" customModule="MobileCloud" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wFk-v0-Tw6"/>
+                        <viewControllerLayoutGuide type="bottom" id="qXi-i3-vLm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="q4w-HU-nES">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vx0-UE-5mA">
+                                <rect key="frame" x="0.0" y="64" width="375" height="280"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="nodeCell" id="S0z-So-edo">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="S0z-So-edo" id="HRa-Qb-RYK">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dod-3V-R1d">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Mobile Edge Cloud" id="AtV-ES-Srk"/>
+                                </items>
+                            </navigationBar>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z7p-bB-XJC">
+                                <rect key="frame" x="0.0" y="344" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Cloudlet" id="PpR-hn-A5w"/>
+                                </items>
+                            </navigationBar>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sIR-HX-2sD">
+                                <rect key="frame" x="0.0" y="492" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Remote Cloud" id="pDa-4h-ZK9"/>
+                                </items>
+                            </navigationBar>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="IP ADDRESS" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Up8-VC-u3q">
+                                <rect key="frame" x="16" y="547" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HkK-i8-rli">
+                                <rect key="frame" x="103" y="585" width="168" height="30"/>
+                                <state key="normal" title="connect to remote cloud"/>
+                                <connections>
+                                    <action selector="connectToRemoteCloud:" destination="WFk-ne-qdb" eventType="touchUpInside" id="QPo-yS-cu1"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Not Connected" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K8O-15-rYN">
+                                <rect key="frame" x="251" y="504" width="117" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Not Connected" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OCE-CG-QEr">
+                                <rect key="frame" x="251" y="356" width="117" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NLw-2b-8pm">
+                                <rect key="frame" x="121" y="436" width="133" height="30"/>
+                                <state key="normal" title="connect to cloudlet"/>
+                                <connections>
+                                    <action selector="connectToCloudlet:" destination="WFk-ne-qdb" eventType="touchUpInside" id="7sG-r9-afr"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="e.g 192.168.0.X" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4BF-cV-3Ln">
+                                <rect key="frame" x="16" y="398" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="nodeCell" rowHeight="70" id="PO2-fF-Pnk">
-                                <rect key="frame" x="0.0" y="28" width="375" height="70"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PO2-fF-Pnk" id="xtV-a8-O3Y">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="S3p-Zj-iQx" id="uyg-Fy-ijJ"/>
-                            <outlet property="delegate" destination="S3p-Zj-iQx" id="2G5-Jg-OeK"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Nearby Devices" id="6AV-j5-iIZ"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iXd-0O-8qZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <constraints>
+                            <constraint firstItem="4BF-cV-3Ln" firstAttribute="leading" secondItem="q4w-HU-nES" secondAttribute="leadingMargin" id="3W5-IG-jlE"/>
+                            <constraint firstItem="vx0-UE-5mA" firstAttribute="top" secondItem="dod-3V-R1d" secondAttribute="bottom" id="5DV-CH-wxe"/>
+                            <constraint firstItem="Z7p-bB-XJC" firstAttribute="leading" secondItem="sIR-HX-2sD" secondAttribute="leading" id="7ua-oF-tbm"/>
+                            <constraint firstItem="dod-3V-R1d" firstAttribute="trailing" secondItem="vx0-UE-5mA" secondAttribute="trailing" id="8iX-tH-fdw"/>
+                            <constraint firstItem="4BF-cV-3Ln" firstAttribute="centerX" secondItem="NLw-2b-8pm" secondAttribute="centerX" id="9Lx-ZT-A0e"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="OCE-CG-QEr" secondAttribute="trailing" constant="-9" id="9NK-CC-dcj"/>
+                            <constraint firstItem="Up8-VC-u3q" firstAttribute="top" secondItem="sIR-HX-2sD" secondAttribute="bottom" constant="11" id="9bU-KV-865"/>
+                            <constraint firstItem="NLw-2b-8pm" firstAttribute="top" secondItem="4BF-cV-3Ln" secondAttribute="bottom" constant="8" symbolic="YES" id="D6N-3n-70h"/>
+                            <constraint firstItem="HkK-i8-rli" firstAttribute="top" secondItem="Up8-VC-u3q" secondAttribute="bottom" constant="8" symbolic="YES" id="Dy7-g4-MUJ"/>
+                            <constraint firstItem="vx0-UE-5mA" firstAttribute="trailing" secondItem="Z7p-bB-XJC" secondAttribute="trailing" id="JKU-XJ-2UE"/>
+                            <constraint firstItem="Z7p-bB-XJC" firstAttribute="centerY" secondItem="OCE-CG-QEr" secondAttribute="centerY" id="KlU-oi-mFS"/>
+                            <constraint firstItem="dod-3V-R1d" firstAttribute="leading" secondItem="q4w-HU-nES" secondAttribute="leading" id="La6-AJ-6Ve"/>
+                            <constraint firstItem="Z7p-bB-XJC" firstAttribute="trailing" secondItem="sIR-HX-2sD" secondAttribute="trailing" id="Mqg-kh-uSW"/>
+                            <constraint firstItem="Up8-VC-u3q" firstAttribute="centerX" secondItem="HkK-i8-rli" secondAttribute="centerX" id="MzD-4P-9ZO"/>
+                            <constraint firstItem="4BF-cV-3Ln" firstAttribute="top" secondItem="Z7p-bB-XJC" secondAttribute="bottom" constant="10" id="Uu5-YX-qdI"/>
+                            <constraint firstItem="4BF-cV-3Ln" firstAttribute="trailing" secondItem="Up8-VC-u3q" secondAttribute="trailing" id="WI5-nn-voR"/>
+                            <constraint firstItem="sIR-HX-2sD" firstAttribute="centerY" secondItem="K8O-15-rYN" secondAttribute="centerY" id="XvZ-IT-fkN"/>
+                            <constraint firstAttribute="trailing" secondItem="dod-3V-R1d" secondAttribute="trailing" id="Y1t-2P-Q9v"/>
+                            <constraint firstItem="qXi-i3-vLm" firstAttribute="top" secondItem="HkK-i8-rli" secondAttribute="bottom" constant="52" id="aRO-18-ikb"/>
+                            <constraint firstItem="OCE-CG-QEr" firstAttribute="leading" secondItem="K8O-15-rYN" secondAttribute="leading" id="av5-z6-juw"/>
+                            <constraint firstItem="sIR-HX-2sD" firstAttribute="top" secondItem="NLw-2b-8pm" secondAttribute="bottom" constant="26" id="d11-pb-SpK"/>
+                            <constraint firstItem="dod-3V-R1d" firstAttribute="top" secondItem="wFk-v0-Tw6" secondAttribute="bottom" id="eNj-7T-8NJ"/>
+                            <constraint firstItem="vx0-UE-5mA" firstAttribute="leading" secondItem="Z7p-bB-XJC" secondAttribute="leading" id="egK-rw-uer"/>
+                            <constraint firstItem="Z7p-bB-XJC" firstAttribute="centerX" secondItem="4BF-cV-3Ln" secondAttribute="centerX" id="hwd-qO-eT3"/>
+                            <constraint firstItem="dod-3V-R1d" firstAttribute="leading" secondItem="vx0-UE-5mA" secondAttribute="leading" id="llX-dZ-qzg"/>
+                            <constraint firstItem="Z7p-bB-XJC" firstAttribute="top" secondItem="vx0-UE-5mA" secondAttribute="bottom" id="lxW-f0-XSO"/>
+                            <constraint firstItem="4BF-cV-3Ln" firstAttribute="leading" secondItem="Up8-VC-u3q" secondAttribute="leading" id="zbA-lx-LyJ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="CloudletConnected" destination="OCE-CG-QEr" id="ShJ-xH-6vO"/>
+                        <outlet property="cloudletButton" destination="NLw-2b-8pm" id="ocR-dc-92V"/>
+                        <outlet property="cloudletTextField" destination="4BF-cV-3Ln" id="WF9-vD-oLN"/>
+                        <outlet property="remoteCloudButton" destination="HkK-i8-rli" id="uSn-W3-J0b"/>
+                        <outlet property="remoteCloudConnected" destination="K8O-15-rYN" id="Gk2-CT-tzy"/>
+                        <outlet property="remoteCloudTextField" destination="Up8-VC-u3q" id="yGf-e2-KQM"/>
+                        <outlet property="tableView" destination="vx0-UE-5mA" id="aTp-ne-EzM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZJY-bi-EHA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-175.19999999999999" y="-52.623688155922046"/>
+            <point key="canvasLocation" x="52" y="-688.60569715142435"/>
         </scene>
     </scenes>
 </document>
