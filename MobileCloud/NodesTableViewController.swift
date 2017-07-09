@@ -104,7 +104,7 @@ class NodesTableViewController: UIViewController {
     
         // MARK: Web sockets delegate
         
-        webSocket.onConnect = { [webSocket, weak self] in
+        webSocket.onConnect = { [webSocket] in
             webSocket?.write(string:"{\"username\":\"\(myName)\"}")
         }
         
