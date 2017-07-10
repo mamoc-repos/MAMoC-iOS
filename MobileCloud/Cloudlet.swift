@@ -9,7 +9,7 @@
 import Foundation
 
 // used for cloudlet connections
-public let CloudletDefaultURL = "192.168.0.15:8080"
+//public let CloudletDefaultURL = "192.168.0.15:8080"
 
 public var webSocket: WebSocket!
 public var isCloudletConnected = false
@@ -18,7 +18,7 @@ public class Cloudlet: NSObject {
     var displayName: String
     var url: URL
     
-    init(name: String, cloudletURL: String = CloudletDefaultURL) {
+    init(name: String, cloudletURL: String) {
         self.displayName = name
         self.url = URL(string:"ws://\(cloudletURL)/connect")!
         webSocket = WebSocket(url: self.url)

@@ -51,9 +51,6 @@ open class MobileCloud {
         let ServiceType:String = "MC2017"
         self.MCLog("Searching for peers with service type " + ServiceType)
         transceiver.startTransceiving(serviceType: ServiceType)
-        
-        // for cloudlet connection
-        cloudletInstance = Cloudlet(name: "cloudlet")
     }
     
     fileprivate func MCLog(_ format:String) {
@@ -134,7 +131,7 @@ open class MobileCloud {
         
         onCloudletConnect = { (myPeerID: MCPeerID, cloudlet: Cloudlet) -> Void in
             let selfNode:MCNode = MCNode.getMe()
-            let cloudletNode:Cloudlet = Cloudlet(name:cloudlet.displayName)
+            let cloudletNode:Cloudlet = Cloudlet(name:cloudlet.displayName, cloudletURL: "")
             
             // make sure this is you!
             if(myPeerID != selfNode.mcPeerID) {

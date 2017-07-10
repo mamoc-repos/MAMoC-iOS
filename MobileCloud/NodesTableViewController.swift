@@ -10,7 +10,7 @@ import UIKit
 import MultipeerConnectivity
 
 class NodesTableViewController: UIViewController {
-
+    
     @IBOutlet var tableView: UITableView!
     
     @IBOutlet var remoteCloudButton: UIButton!
@@ -38,29 +38,17 @@ class NodesTableViewController: UIViewController {
         }
     }
     
-    @IBAction func connectToRemoteCloud(_ sender: Any) {
-        
-    }
-    
-    @IBAction func connectToCloudlet(_ sender: Any) {
-        
-        guard cloudletTextField.text != nil else {
-            return
-        }
-        
-        let ip = cloudletTextField.text!
-        
-        // use user provided cloudlet IP address, otherwise use default cloudlet IP address
-        if !(ip.isEmpty) {
-           MobileCloud.MCInstance.cloudletInstance.url = URL(string:"ws://\(ip)/connect")!
-        }
-        
-        webSocket.connect()
-    }
-    
     open override func viewDidLoad() {
         
-        setupWebSocketSettings()
+        CloudletConnected.textColor = UIColor.red
+        remoteCloudConnected.textColor = UIColor.red
+        
+        // if cloudlet IP and remote cloud IPs have been previously set, update the value of textfields and start connecting
+        
+        if let cl = UserDefaults.standard.value(forKey: "cloudletIP") {
+            cloudletTextField.text = cl as? String
+            connectToCloudlet(self)
+        }
         
         if let cp = UserDefaults.standard.value(forKey: "cloudIP") {
             remoteCloudTextField.text = cp as? String
@@ -80,28 +68,40 @@ class NodesTableViewController: UIViewController {
             self.tableView.refreshControl = refreshControl
         }
     }
-
+    
     @objc private func refreshOptions(sender: UIRefreshControl) {
         
         self.tableView.reloadData()
         sender.endRefreshing()
     }
     
-    func setupWebSocketSettings() {
+    @IBAction func connectToRemoteCloud(_ sender: Any) {
+        
+    }
     
-        CloudletConnected.textColor = UIColor.red
-        remoteCloudConnected.textColor = UIColor.red
+    @IBAction func connectToCloudlet(_ sender: Any) {
         
-        // if cloudlet IP and remote cloud IPs have been previously set, update the value of textfields and start connecting
-        
-        if let cl = UserDefaults.standard.value(forKey: "cloudletIP") {
-            cloudletTextField.text = cl as? String
-            connectToCloudlet(self)
+        guard cloudletTextField.text != nil else {
+            return
         }
+        
+        let ip = cloudletTextField.text!
+        print(ip)
+        
+        // use user provided cloudlet IP address, otherwise use default cloudlet IP address
+        if !(ip.isEmpty) {
+            MobileCloud.MCInstance.cloudletInstance = Cloudlet(name: "cloudlet", cloudletURL: ip)
+            webSocket.connect()
+            print(webSocket.isConnected)
+            setupWebSocketSettings()
+        }
+    }
 
+    func setupWebSocketSettings() {
+        
         //set this you want to ignore SSL cert validation, so a self signed SSL certificate can be used.
         webSocket.disableSSLCertValidation = true
-    
+        
         // MARK: Web sockets delegate
         
         webSocket.onConnect = { [webSocket] in
@@ -113,13 +113,13 @@ class NodesTableViewController: UIViewController {
             guard let js = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) as! NSDictionary else { return }
             guard let content = js["message"] as? String
                 else { return }
-            if content == myName {
+            if content == myName + " is connected" {
                 
                 isCloudletConnected = true
                 
                 self.CloudletConnected.text = "Connected"
                 self.CloudletConnected.textColor = UIColor.green
-                self.cloudletTextField.text = CloudletDefaultURL
+                //    self.cloudletTextField.text = CloudletDefaultURL
                 
                 // disable both the textfield and button
                 self.cloudletButton.isEnabled = false
@@ -255,13 +255,17 @@ extension NodesTableViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension NodesTableViewController: MCManagerDelegate {
-
+    
     func foundPeer() {
-        self.tableView.reloadData()
+        DispatchQueue.main.async(execute: {
+            self.tableView.reloadData()
+        })
     }
     
     func lostPeer() {
-        self.tableView.reloadData()
+        DispatchQueue.main.async(execute: {
+            self.tableView.reloadData()
+        })
     }
     
     func sessionDidChange() {
