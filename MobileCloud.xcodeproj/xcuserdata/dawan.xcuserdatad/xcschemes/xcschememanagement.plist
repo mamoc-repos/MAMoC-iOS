@@ -7,11 +7,31 @@
 		<key>MobileCloud.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
+			<integer>0</integer>
+		</dict>
+		<key>SearchingExample.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
 			<integer>1</integer>
+		</dict>
+		<key>SortingExample.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>8B50BD7B1F12FD9400234576</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8B50BD911F12FE4C00234576</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>8B83881F1EF975700030984F</key>
 		<dict>
 			<key>primary</key>

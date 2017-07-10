@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="z1q-BB-tah">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Text Search-->
+        <scene sceneID="ZFw-hq-Nca">
+            <objects>
+                <viewController id="iye-Tb-8ht" customClass="TextSearchViewController" customModule="SearchingExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QVn-Ee-EET"/>
+                        <viewControllerLayoutGuide type="bottom" id="baj-bi-Y85"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="FMS-vc-oDY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter search keyword" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sNA-TV-LHD">
+                                <rect key="frame" x="16" y="78" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="search" enablesReturnKeyAutomatically="YES"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ThQ-q6-CBm">
+                                <rect key="frame" x="77" y="112" width="76" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="76" id="RQB-Tm-znc"/>
+                                </constraints>
+                                <state key="normal" title="Nearby"/>
+                                <connections>
+                                    <action selector="startBtn:" destination="iye-Tb-8ht" eventType="touchUpInside" id="eg8-BP-adK"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sA0-5y-WYC">
+                                <rect key="frame" x="268" y="112" width="91" height="30"/>
+                                <state key="normal" title="Cloud"/>
+                                <connections>
+                                    <action selector="searchCloud:" destination="iye-Tb-8ht" eventType="touchUpInside" id="hoY-ZG-bIG"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Log" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="BCt-ag-1w1">
+                                <rect key="frame" x="16" y="150" width="343" height="460"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UPd-IZ-Sxi">
+                                <rect key="frame" x="16" y="28" width="343" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="1fi-Hw-Wj6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kFN-RC-icV">
+                                <rect key="frame" x="7" y="112" width="59" height="31"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JUc-sh-Uzl">
+                                <rect key="frame" x="162" y="112" width="91" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="91" id="zi7-SA-zNJ"/>
+                                </constraints>
+                                <state key="normal" title="Cloudlet"/>
+                                <connections>
+                                    <action selector="searchCloudlet:" destination="iye-Tb-8ht" eventType="touchUpInside" id="G98-6C-ezx"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="sNA-TV-LHD" firstAttribute="leading" secondItem="BCt-ag-1w1" secondAttribute="leading" id="536-cD-FdR"/>
+                            <constraint firstItem="kFN-RC-icV" firstAttribute="centerY" secondItem="ThQ-q6-CBm" secondAttribute="centerY" id="56S-Ow-tlH"/>
+                            <constraint firstItem="ThQ-q6-CBm" firstAttribute="baseline" secondItem="JUc-sh-Uzl" secondAttribute="baseline" id="591-Gg-UZG"/>
+                            <constraint firstItem="sA0-5y-WYC" firstAttribute="leading" secondItem="JUc-sh-Uzl" secondAttribute="trailing" constant="15" id="65f-cb-5Fx"/>
+                            <constraint firstItem="UPd-IZ-Sxi" firstAttribute="trailing" secondItem="sNA-TV-LHD" secondAttribute="trailing" id="DPo-No-rnC"/>
+                            <constraint firstItem="UPd-IZ-Sxi" firstAttribute="top" secondItem="QVn-Ee-EET" secondAttribute="bottom" constant="8" symbolic="YES" id="Jfe-vq-vgA"/>
+                            <constraint firstItem="BCt-ag-1w1" firstAttribute="top" secondItem="ThQ-q6-CBm" secondAttribute="bottom" constant="8" symbolic="YES" id="LNm-Tv-PBW"/>
+                            <constraint firstItem="sA0-5y-WYC" firstAttribute="trailing" secondItem="BCt-ag-1w1" secondAttribute="trailing" id="OHY-Xp-hgx"/>
+                            <constraint firstItem="ThQ-q6-CBm" firstAttribute="leading" secondItem="kFN-RC-icV" secondAttribute="trailing" constant="11" id="Ui7-n6-V2H"/>
+                            <constraint firstItem="kFN-RC-icV" firstAttribute="leading" secondItem="FMS-vc-oDY" secondAttribute="leadingMargin" constant="-9" id="Wm7-St-y4T"/>
+                            <constraint firstItem="kFN-RC-icV" firstAttribute="top" secondItem="ThQ-q6-CBm" secondAttribute="top" id="aGE-Qd-Trg"/>
+                            <constraint firstItem="baj-bi-Y85" firstAttribute="top" secondItem="BCt-ag-1w1" secondAttribute="bottom" constant="8" symbolic="YES" id="bD3-tf-OwP"/>
+                            <constraint firstItem="UPd-IZ-Sxi" firstAttribute="leading" secondItem="FMS-vc-oDY" secondAttribute="leadingMargin" id="dLf-bg-WSH"/>
+                            <constraint firstItem="JUc-sh-Uzl" firstAttribute="leading" secondItem="ThQ-q6-CBm" secondAttribute="trailing" constant="9" id="lN1-Ig-ygB"/>
+                            <constraint firstItem="sNA-TV-LHD" firstAttribute="trailing" secondItem="sA0-5y-WYC" secondAttribute="trailing" id="m4g-Z3-hjn"/>
+                            <constraint firstItem="UPd-IZ-Sxi" firstAttribute="leading" secondItem="sNA-TV-LHD" secondAttribute="leading" id="rPB-Gw-vsj"/>
+                            <constraint firstItem="kFN-RC-icV" firstAttribute="top" secondItem="sNA-TV-LHD" secondAttribute="bottom" constant="4" id="skh-cH-cNU"/>
+                            <constraint firstItem="sNA-TV-LHD" firstAttribute="top" secondItem="UPd-IZ-Sxi" secondAttribute="bottom" constant="8" symbolic="YES" id="szp-rV-tHw"/>
+                            <constraint firstItem="UPd-IZ-Sxi" firstAttribute="trailing" secondItem="FMS-vc-oDY" secondAttribute="trailingMargin" id="t0c-my-Bgn"/>
+                            <constraint firstItem="JUc-sh-Uzl" firstAttribute="baseline" secondItem="sA0-5y-WYC" secondAttribute="baseline" id="w8A-Z1-sGW"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Text Search" id="Ie2-YK-ZV3"/>
+                    <connections>
+                        <outlet property="logTextView" destination="BCt-ag-1w1" id="gqz-he-PdR"/>
+                        <outlet property="myNameLabel" destination="UPd-IZ-Sxi" id="iK9-cV-Fqf"/>
+                        <outlet property="searchCloud" destination="sA0-5y-WYC" id="Zin-UQ-7Uy"/>
+                        <outlet property="searchCloudlet" destination="JUc-sh-Uzl" id="Oha-A9-0wF"/>
+                        <outlet property="textSearchField" destination="sNA-TV-LHD" id="4Cp-nc-pAh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ldD-BJ-HKR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1366" y="371"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="bVz-Aa-1jL">
+            <objects>
+                <tabBarController id="z1q-BB-tah" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="Lfd-fq-571">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="AeH-7z-JMa" kind="relationship" relationship="viewControllers" id="UB4-80-mCj"/>
+                        <segue destination="iye-Tb-8ht" kind="relationship" relationship="viewControllers" id="y8c-4G-xvu"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BuV-50-gOW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="23" y="54"/>
+        </scene>
+        <!--NodesTVC-->
+        <scene sceneID="xCm-N0-S69">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MCStoryboard" bundleIdentifier="uk.ac.st-andrews.cs.MobileCloud" referencedIdentifier="NodesTVC" id="AeH-7z-JMa" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Connections" id="XiP-2n-cvg"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pZk-es-stf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="919" y="-464"/>
+        </scene>
+    </scenes>
+</document>
