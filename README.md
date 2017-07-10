@@ -3,7 +3,7 @@ A Swift framework for running jobs on nearby devices, cloudlets, and remote clou
 
 ## What is it for?
 
-## Text Search Example
+### Text Search Example
 ```Swift
 // start the framework
 let mc = MobileCloud.MCInstance
@@ -17,6 +17,9 @@ mc.execute(type: OffloadingType.auto)
 ```
 
 There are two working examples provided as app targets when you open the XCode project. 
+
+### Multipeer Connectivity 
+This uses Apple's [MutipeerConnectivity](https://developer.apple.com/reference/multipeerconnectivity) framework. The Multipeer Connectivity framework supports the discovery of services provided by nearby devices and supports communicating with those services through message-based data, streaming data, and resources (such as files). In iOS, the framework uses infrastructure Wi-Fi networks, peer-to-peer Wi-Fi, and Bluetooth personal area networks for the underlying transport. In macOS and tvOS, it uses infrastructure Wi-Fi, peer-to-peer Wi-Fi, and Ethernet. Each `MCSession` supports up to 8 peers, including the local peer.
 
 ## Installation
 
