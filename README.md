@@ -18,6 +18,8 @@ mc.execute(type: OffloadingType.auto)
 
 There are two working examples provided as app targets when you open the XCode project. 
 
+For setting up the container on both cloudlet and remote clouds check the [documentation](https://github.com/dawand/MobileEdgeCloud/wiki/Documentation).
+
 ## Installation
 
 ### Cocoapods
