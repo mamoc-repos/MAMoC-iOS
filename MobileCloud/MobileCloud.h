@@ -16,5 +16,4 @@ FOUNDATION_EXPORT const unsigned char MobileCloudVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <MobileCloud/PublicHeader.h>
 
-
 #import "SystemServices.h"

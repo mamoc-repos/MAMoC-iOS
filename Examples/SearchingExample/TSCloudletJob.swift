@@ -30,10 +30,10 @@ public class TSCloudletJob: CloudletJob {
         return TSTask(peerCount: 1, peerNumber: 1, searchTerm: searchTerm!)
     }
     
+    // TODO: customise this so that auto offloading can use custom parameter settings
     open override func executeTask(_ cloudlet:Cloudlet, task: MCTask) {
         let searchTask:TSTask = task as! TSTask
-        cloudlet.send(json:"{\"TextSearch\":\"\(searchTask.searchTerm)\"}")
-        
+        cloudlet.send(json:"{\"TextSearch\":\"\(searchTask.searchTerm)\", \"start\":0, \"end\":0}")
     }
     
     open func searchLog(_ format:String) {

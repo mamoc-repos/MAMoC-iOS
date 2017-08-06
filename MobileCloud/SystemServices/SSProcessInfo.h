@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-NS_CLASS_DEPRECATED_IOS(2_0, 9_0, "SSProcessInfo is deprecated. Process information is no longer allowed in iOS 9")
+//NS_CLASS_DEPRECATED_IOS(2_0, 9_0, "SSProcessInfo is deprecated. Process information is no longer allowed in iOS 9")
 @interface SSProcessInfo : NSObject
 
 // Process Information

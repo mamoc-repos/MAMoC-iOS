@@ -3,7 +3,7 @@ import MobileCloud
 
 open class QSJob: MCJob {
 
-    open var arrayOfWords: [String]?
+    open var arrayOfWords = [String]()
 
     public override init() {
         super.init()
@@ -18,7 +18,7 @@ open class QSJob: MCJob {
     }
 
     open override func initTask(_ node:MCNode, nodeNumber:UInt, totalNodes:UInt) -> QSTask {
-        return QSTask(peerCount: Int(totalNodes), peerNumber: Int(nodeNumber))
+        return QSTask(peerCount: Int(totalNodes), peerNumber: Int(nodeNumber), wordList:arrayOfWords)
     }
     
     fileprivate func getTextToSort(_ peerCount:Int, peerNumber:Int) -> [String] {
@@ -26,7 +26,7 @@ open class QSJob: MCJob {
             // This solution assumes  you've got the file in your bundle
             if let path = Bundle.main.path(forResource: "bigText", ofType: "txt"){
                 let data = try String(contentsOfFile:path, encoding: String.Encoding.utf8)
-                arrayOfWords = data.components(separatedBy: "\n")
+                arrayOfWords = data.components(separatedBy: " ")
                 //    print(arrayOfStrings)
             }
         } catch let err as NSError {
@@ -38,29 +38,29 @@ open class QSJob: MCJob {
         let peerNumberD:Double = Double(peerNumber)
         
         var startIndex = 0
-        var endIndex = (arrayOfWords?.count)!
+        var endIndex = arrayOfWords.count
         
         if(peerNumber == 0) {
             startIndex = 0
         } else {
-            startIndex += Int(floor((peerNumberD/peerCountD)*Double((arrayOfWords?.count)!)))
-            while(startIndex > (arrayOfWords?.startIndex)! && (arrayOfWords?[startIndex] != "\n")) {
-                startIndex = (arrayOfWords?.index(startIndex, offsetBy: -1))!
+            startIndex += Int(floor((peerNumberD/peerCountD)*Double(arrayOfWords.count)))
+            while(startIndex > arrayOfWords.startIndex && (arrayOfWords[startIndex] != "\n")) {
+                startIndex = arrayOfWords.index(startIndex, offsetBy: -1)
             }
         }
         
         if(peerNumber + 1 == peerCount) {
-            endIndex = (arrayOfWords?.count)!
+            endIndex = arrayOfWords.count
         } else {
-            endIndex += Int(floor((peerNumberD/peerCountD)*Double((arrayOfWords?.count)!)))
-            while(endIndex > (arrayOfWords?.startIndex)! && (arrayOfWords?[endIndex] != "\n")) {
-                endIndex = (arrayOfWords?.index(endIndex, offsetBy: -1))!
+            endIndex += Int(floor((peerNumberD/peerCountD)*Double(arrayOfWords.count)))
+            while(endIndex > arrayOfWords.startIndex && arrayOfWords[endIndex] != "\n") {
+                endIndex = arrayOfWords.index(endIndex, offsetBy: -1)
             }
         }
         
         debugPrint("startIndex \(startIndex), endIndex \(endIndex)")
         
-        return Array(arrayOfWords![startIndex..<endIndex])
+        return Array(arrayOfWords[startIndex..<endIndex])
     }
     
     open override func executeTask(_ node:MCNode, fromNode:MCNode, task: MCTask) -> QSResult {
@@ -79,7 +79,9 @@ open class QSJob: MCJob {
                 finalSortedList.append(word)
             }
         }
+   //     debugPrint(finalSortedList)
         finalSortedList = quicksort(finalSortedList)
+   //     debugPrint(finalSortedList)
 //      sortLog("The final sorted list is \(finalSortedList) \n")
     }
 

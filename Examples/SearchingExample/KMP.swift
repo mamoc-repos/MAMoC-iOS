@@ -28,6 +28,7 @@ fileprivate func build_pi(_ str: String) -> [Int] {
 
 // Knuth-Morris Pratt algorithm
 public func KMP(_ text:String, pattern: String) -> [Int] {
+    let start = CFAbsoluteTimeGetCurrent()
     
     // Convert to Character array to index in O(1)
     var patt = Array(pattern.characters)
@@ -50,5 +51,9 @@ public func KMP(_ text:String, pattern: String) -> [Int] {
         }
     }
     
+    let stopTime = CFAbsoluteTimeGetCurrent()
+    
+    debugPrint("Searching the file time: \(stopTime - start)")
+
     return matches
 }

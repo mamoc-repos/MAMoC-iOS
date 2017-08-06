@@ -10,7 +10,7 @@ import UIKit
 import MobileCloud
 
 class QuickSortViewController: UIViewController {
-
+    
     let mc = MobileCloud.MCInstance
     
     @IBOutlet var logTextView: UITextView!
@@ -26,24 +26,30 @@ class QuickSortViewController: UIViewController {
             let format: String = result.object as! String
             self.quickSortLog(format)
         }
-
+        
         // Do any additional setup after loading the view.
     }
-
+    
     @IBAction func sortBtnTapped(_ sender: Any) {
         
         initiateMobileCloud()
     }
-
+    
     func initiateMobileCloud() {
         // set the job
         mc.setJob(job: QSJob())
         // set the search term
-    //    (MobileCloud.MCInstance.getJob() as! TSJob).searchTerm = searchTerm
+//     (MobileCloud.MCInstance.getJob() as! TSJob).searchTerm = searchTerm
         // start executing
-       mc.execute(type: OffloadingType.local)
+        mc.execute(type: OffloadingType.local)
     }
-
+    
+    @IBAction func sortOnCloud(_ sender: Any) {
+        mc.setCloudletJob(job: QSCloudJob())
+        
+        mc.execute(type: OffloadingType.cloudlet)
+    }
+    
     func quickSortLog(_ format: String, writeToDebugLog:Bool = false, clearLog: Bool = false) {
         DispatchQueue.main.async {
             if(clearLog) {
@@ -59,7 +65,7 @@ class QuickSortViewController: UIViewController {
             }
         }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

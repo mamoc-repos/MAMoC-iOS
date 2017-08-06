@@ -28,7 +28,7 @@ open class MobileCloud {
     
     public var PeerName = MCNode.getMe().nodeName
     
-    public var connectedNodes: [MCNode] {
+    fileprivate var connectedNodes: [MCNode] {
         var nodes: [MCNode] = []
         
         let mcPeerIDs: [MCPeerID] = (session.connectedPeers)
@@ -38,7 +38,7 @@ open class MobileCloud {
         return nodes
     }
     
-    var allLocalNodes: [MCNode] { return [MCNode.getMe()] + connectedNodes }
+    fileprivate var allLocalNodes: [MCNode] { return [MCNode.getMe()] + connectedNodes }
 
     // TODO: create session to manage multiple cloudlets
     // open var allCloudlets: [Cloudlet]
@@ -54,7 +54,8 @@ open class MobileCloud {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 10.0) {
             DispatchQueue.global(qos: DispatchQoS.QoSClass.utility).async {
-                self.runBenchmarkWorkload()
+            //    self.autoTaskPartition()
+            //    self.runBenchmarkWorkload()
             }
         }
     }
@@ -63,7 +64,7 @@ open class MobileCloud {
         job.onLog(format)
     }
     
-    open func getJob() -> MCJob {
+    public func getJob() -> MCJob {
         return job
     }
     
@@ -103,8 +104,31 @@ open class MobileCloud {
         //    let selfNode:MCNode = MCNode.getMe()
             
             // deserialize the result!
-            let dataReceived:[String: NSObject] = NSKeyedUnarchiver.unarchiveObject(with: object as! Data) as! [String: NSObject]
+            let dataReceived:String = NSKeyedUnarchiver.unarchiveObject(with: object as! Data) as! String
             self.MCLog("Received benchmark data from \(fromPeerID.displayName) : \(dataReceived)")
+            debugPrint("Received benchmark data from \(fromPeerID.displayName) : \(dataReceived)")
+        }
+        
+        // When an execution data is received
+        eventBlocks[Task.executionData.rawValue] = { (fromPeerID: MCPeerID, object: AnyObject?) -> Void in
+            //    let selfNode:MCNode = MCNode.getMe()
+            
+            print("received execution data")
+            
+            let dataReceived = NSKeyedUnarchiver.unarchiveObject(with: object as! Data) as! [String: NSObject]
+            
+            // TODO: save the content somewhere
+            let content:String = dataReceived["content"] as! String
+            
+            let timer:Date = dataReceived["time"] as! Date
+
+            var endTimer = timer.timeIntervalSinceNow
+            endTimer = Double(round(1000*endTimer)/1000)
+            
+            print("start timer \(endTimer)")
+
+            self.MCLog("Received execution data from \(fromPeerID.displayName) in \(abs(endTimer)) seconds ")
+            debugPrint("Received execution data from \(fromPeerID.displayName) in \(abs(endTimer)) seconds")
         }
 
         // when a work request comes over the air, have the tool process the work
@@ -127,7 +151,7 @@ open class MobileCloud {
                 // process the work, and get a result
                 self.processTaskTimer.start()
                 let peerResult:MCResult = self.job.executeTask(fromNode, fromNode: fromNode, task: peerTask)
-                self.processTaskTimer.stop()
+                let _ = self.processTaskTimer.stop()
                 
                 let dataToSend:[String:NSObject] =
                     ["MCResult": NSKeyedArchiver.archivedData(withRootObject: peerResult) as NSObject,
@@ -140,6 +164,7 @@ open class MobileCloud {
                 
                 // send the result back to the session
                 sendEvent(Task.fetchingResult.rawValue + sessionUUID, object: NSKeyedArchiver.archivedData(withRootObject: dataToSend) as AnyObject, toPeers: [fromPeerID])
+                
                 self.MCLog("Sent result.")
             }
         }
@@ -186,7 +211,6 @@ open class MobileCloud {
         case .auto:
             self.autoTaskPartition()
             break
-            
         }
     }
     
@@ -198,26 +222,47 @@ open class MobileCloud {
         self.cloudletJob = job
     }
     
+    
     func executeOnCloudlet(){
         
+        executionTimer.start()
+        
+        nodeToCloudletRoundTripTimer["cloudlet"] = [Cloudlet:MCTimer]()
+
         let cloudletTask:MCTask = self.cloudletJob.initTask(cloudletInstance)
         self.MCLog("Creating task for \(cloudletInstance.displayName)")
         
         self.cloudletJob.executeTask(cloudletInstance, task: cloudletTask)
         self.MCLog("Sending task to \(cloudletInstance.displayName)")
-
-        webSocket.onText = { [unowned self] text in
+        
+        lock.sync {
+            nodeToCloudletRoundTripTimer["cloudlet"]![self.cloudletInstance]?.start()
+        }
+        
+        self.cloudletInstance.webSocket.onText = { [unowned self] text in
             guard let data = text.data(using: String.Encoding.utf8) else { return }
             guard let js = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) as! NSDictionary else { return }
             guard let result = js["result"] as? Int, let time = js["timeInSec"] as? Double
                 else { return }
             
             self.MCLog(self.cloudletInstance.displayName + " returned the result: \(result) in \(time) seconds")
+            
+            lock.sync {
+            //    let cloudletRoundTripTime = nodeToCloudletRoundTripTimer["cloudlet"]![self.cloudletInstance]?.stop()
+                let _ = self.executionTimer.stop()
+
+                self.MCLog(String(describing: self.cloudletInstance.url) + " network overhead: " + String(format: "%.3f", self.executionTimer.getElapsedTimeInSeconds() - time) + " seconds.")
+
+                self.MCLog("Total execution time for " + self.cloudletJob.name() + ": " + String(format: "%.3f", self.executionTimer.getElapsedTimeInSeconds()) + " seconds.")
+            
+                nodeToCloudletRoundTripTimer.removeValue(forKey: "cloudlet")
+            }
         }
     }
     
     func executeOnRemote(){
-        
+        // MARK: Temporary solution for the remote cloud to be same with the cloudlet
+        executeOnCloudlet()
     }
     
     public func execute(_ onNodes:[MCNode]) -> Void {
@@ -283,7 +328,7 @@ open class MobileCloud {
                     self.MCLog(fromNode.description + " network/data transfer and overhead time: " + String(format: "%.3f", roundTripTime - processWorkTime) + " seconds.")
                     
                     nodeToResult[receivedSessionUUID]![fromNode] = peerResult
-                    self.finishAndMerge(fromNode, sessionUUID: receivedSessionUUID)
+                    let _ = self.finishAndMerge(fromNode, sessionUUID: receivedSessionUUID)
                 }
             } else {
                 // the likelyhood of this occuring is small.
@@ -370,10 +415,10 @@ open class MobileCloud {
             self.MCLog(MCNode.getMe().description + " received all \(nodeToResult[sessionUUID]!.count) results for session " + sessionUUID + ".  Merging results.")
             mergeResultsTimer.start()
             self.job.mergeResults(MCNode.getMe(), nodeToResult: nodeToResult[sessionUUID]!)
-            mergeResultsTimer.stop()
+            let _ = mergeResultsTimer.stop()
             
             self.MCLog("Merge results time for " + job.name() + ": " + String(format: "%.3f", mergeResultsTimer.getElapsedTimeInSeconds()) + " seconds.")
-            executionTimer.stop()
+            let _ = executionTimer.stop()
             
             // remove session information from data structures
             mcPeerIDToNode.removeValue(forKey: sessionUUID)
@@ -387,13 +432,33 @@ open class MobileCloud {
     }
     
     
+    
     func runBenchmarkWorkload(){
+        debugPrint("starting benchmarking")
+        
+        debugPrint("starting mandelbrot benchmarking")
+
+        //Mandelbrot
         let workload = MandelbrotWorkload(width: 800, height: 800)
         let result = workload.run()
-        printResult(result)
+        let avgString = printResult(result)
+        
+//        debugPrint("starting FFT benchmarking")
+
+        // FFT
+//        let workload2 = SFFTWorkload(size: 8 * 1024 * 1024, chunkSize: 4096)
+//        let result2 = workload2.run()
+//        printResult(result2)
+        
+        for n in self.connectedNodes {
+            
+            sendEvent(Task.benchmark.rawValue, object: NSKeyedArchiver.archivedData(withRootObject: avgString) as AnyObject, toPeers: [n.mcPeerID])
+            
+            self.MCLog("Sent benchmark to \(n.nodeName).")
+        }
     }
     
-    func printResult(_ result : WorkloadResult) {
+    func printResult(_ result : WorkloadResult) -> String {
         print(result.workloadName)
         for (rate, runtime) in zip(result.rates, result.runtimes) {
             let rateString = result.workloadUnits.stringFromRate(rate)
@@ -414,21 +479,91 @@ open class MobileCloud {
         print("  Avg rate: \(avgString)")
         print("")
         
-        for n in self.connectedNodes {
-
-            sendEvent(Task.benchmark.rawValue, object: NSKeyedArchiver.archivedData(withRootObject: avgRate) as AnyObject, toPeers: [n.mcPeerID])
-            
-            self.MCLog("Sent benchmark to \(n.nodeName).")
-        }
+        return avgString
     }
     
     // TODO: Run an automatic task partition based on the information returned from all the connected nodes
     func autoTaskPartition(){
         
-        let sys = Utils.system
-      //  let
-        for n in self.connectedNodes {
+      //  let sys = Utils.system
+        
+  //      for _ in self.connectedNodes {
+            print(Utils.getNumberofCPUs())
+            print(Utils.getProcessorSpeed())
+            print(Utils.getTotalMemory())
+            print(Utils.getFreeMemoryPercentage())
+            print(Utils.getNetworkType())
+  //      }
+    }
+    
+    open func sendExecutionData(){
+        
+            let files = ["small.txt"]
+                //, "medium.txt", "large.txt"]
             
+            for f in files{
+                if self.connectedNodes.count > 1 {
+                    sendFileToNearbyNodes(f: f)
+                }
+                if self.cloudletInstance.webSocket.isConnected {
+                    sendFileToCloudlet(f:f)
+                }
+            }
+    }
+    
+    func sendFileToNearbyNodes(f:String){
+        let fileContent = readFile(file: f)
+      
+    //    var fileContent:String = ""
+    //    for _ in 0...40000 {
+    //        fileContent.append("test ")
+    //    }
+
+        for n in self.connectedNodes {
+
+            let startTimer:Date = Date()
+            
+            print("start timer \(startTimer)")
+            
+            let dataToSend:[String:NSObject] =
+                ["content": fileContent as NSObject,
+                 "time": startTimer as NSObject]
+            
+            sendEvent(Task.executionData.rawValue, object: NSKeyedArchiver.archivedData(withRootObject: dataToSend) as AnyObject, toPeers: [n.mcPeerID])
+            
+         //   let timer = startTimer.timeIntervalSinceNow
+            
+            print("Data sent to \(n.nodeName)")
         }
     }
+    
+    func sendFileToCloudlet(f:String){
+    //    let fileContent = readFile(file: f)
+    //    var trimmedContent = fileContent.trimmingCharacters(in: .whitespacesAndNewlines)
+    //    trimmedContent = trimmedContent.replacingOccurrences(of: "^\\s*\"", with: "", options: .regularExpression)
+        
+        // large text file words -> 1095649
+        // medium text file words -> 316323
+        
+        var trimmedContent = ""
+        for _ in 0...316323 {
+            trimmedContent.append("test ")
+        }
+        
+        let startTimer = Date()
+        
+        self.cloudletInstance.send(json:"{\"ExecutionData\":\"\(trimmedContent)\", \"start\":0, \"end\":0}")
+        
+        self.cloudletInstance.webSocket.onText = { [unowned self] text in
+            
+            guard let data = text.data(using: String.Encoding.utf8) else { return }
+            guard let js = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) as! NSDictionary else { return }
+            guard let result = js["result"] as? Int
+                else { return }
+            print(result)
+            let timer = startTimer.timeIntervalSinceNow
+            print("Data sent to \(self.cloudletInstance.displayName) in \(abs(timer)) seconds")
+        }
+    }
+
 }

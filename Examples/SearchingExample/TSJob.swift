@@ -27,6 +27,8 @@ open class TSJob: MCJob {
         // function to get the contents of the file
         self.textToSearch = readFile()
         
+        debugPrint("Read the file")
+        
         let peerCountD:Double = Double(peerCount)
         let peerNumberD:Double = Double(peerNumber)
         
@@ -44,14 +46,17 @@ open class TSJob: MCJob {
             }
         }
         
-        if(peerNumber + 1 == peerCount) {
-            endIndex = textToSearch.endIndex
-        } else {
-            endIndex = textToSearch.characters.index(textToSearch.startIndex, offsetBy: Int(floor(((peerNumberD + 1)/peerCountD)*Double(numberOfCharacters))))
-            while(endIndex > textToSearch.startIndex && (textToSearch[endIndex] != newline)) {
-                endIndex = textToSearch.index(endIndex, offsetBy: -1)
-            }
-        }
+//        if(peerNumber + 1 == peerCount) {
+//            endIndex = textToSearch.endIndex
+//        } else {
+//            endIndex = textToSearch.characters.index(textToSearch.startIndex, offsetBy: Int(floor(((peerNumberD + 1)/peerCountD)*Double(numberOfCharacters))))
+//            while(endIndex > textToSearch.startIndex && (textToSearch[endIndex] != newline)) {
+//                endIndex = textToSearch.index(endIndex, offsetBy: -1)
+//            }
+//        }
+        
+        // search half of the file
+        endIndex = textToSearch.characters.index(textToSearch.startIndex, offsetBy:(numberOfCharacters))
         
         debugPrint("startIndex \(startIndex), endIndex \(endIndex)")
         

@@ -12,6 +12,7 @@ enum Task: String {
     case offloadingEvent = "offloadingEvent"
     case fetchingResult = "sendResultEvent"
     case benchmark = "workloadBenchmark"
+    case executionData = "executionData"
 }
 
 open class MCTask: MCCoding {

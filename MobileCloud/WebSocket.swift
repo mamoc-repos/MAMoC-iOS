@@ -955,7 +955,6 @@ private extension Data {
     init(buffer: UnsafeBufferPointer<UInt8>) {
         self.init(bytes: buffer.baseAddress!, count: buffer.count)
     }
-
 }
 
 private extension UnsafeBufferPointer {

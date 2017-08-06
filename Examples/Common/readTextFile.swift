@@ -8,28 +8,38 @@
 
 import Foundation
 
-public let TEXT_FILE_NAME = "bigText.txt"
+// we have small.txt, medium.txt, and large.txt files
+public let TEXT_FILE_NAME = "large.txt"
 
-public func readFile() -> String{
+public func readFile(file:String = TEXT_FILE_NAME) -> String {
     
-    var resourceURL:URL = URL(string: Bundle.main.resourcePath!)!
-    var textToSearch = ""
+    let start = CFAbsoluteTimeGetCurrent()
+
+    let resourceURL:URL = URL(string: Bundle.main.resourcePath!)!
+    var fileText = ""
     
     do {
-        let textToSearchFile:URL = try (FileManager.default.contentsOfDirectory(at: resourceURL, includingPropertiesForKeys: nil, options: FileManager.DirectoryEnumerationOptions()).filter{ $0.lastPathComponent == TEXT_FILE_NAME }).first!
+        let SearchFile:URL = try (FileManager.default.contentsOfDirectory(at: resourceURL, includingPropertiesForKeys: nil, options: FileManager.DirectoryEnumerationOptions()).filter{ $0.lastPathComponent == file }).first!
         
-        if let aStreamReader = StreamReader(path: textToSearchFile.path) {
+        if let aStreamReader = StreamReader(path: SearchFile.path) {
             defer {
                 aStreamReader.close()
             }
             while let line = aStreamReader.nextLine() {
-                textToSearch += line
-                textToSearch += "\n"
+                fileText += line
+                fileText += "\n"
             }
         }
+        
+//    fileText = try String(contentsOf: SearchFile)
+        
     } catch let error as NSError {
         debugPrint("Error reading file: \(error.localizedDescription)")
     }
     
-    return textToSearch
+    let stopTime = CFAbsoluteTimeGetCurrent()
+    
+    debugPrint("Reading the file time: \(stopTime - start)")
+
+    return fileText
 }

@@ -11,14 +11,14 @@ import MobileCloud
 import MultipeerConnectivity
 
 class TextSearchViewController: UIViewController,UITextFieldDelegate {
-
+    
     let mc = MobileCloud.MCInstance
     
     @IBOutlet var myNameLabel: UILabel!
     @IBOutlet var textSearchField: UITextField!
-
+    
     @IBOutlet var searchCloudlet: UIButton!
-
+    
     @IBOutlet var searchCloud: UIButton!
     
     @IBOutlet var logTextView: UITextView!
@@ -27,7 +27,7 @@ class TextSearchViewController: UIViewController,UITextFieldDelegate {
         super.viewDidLoad()
         
         initiateMobileCloud(textSearchField.text!)
-
+        
         // log any info from text search jobs to our textbox
         SwiftEventBus.onMainThread(self, name: "text search log") { result in
             let format: String = result.object as! String
@@ -37,10 +37,14 @@ class TextSearchViewController: UIViewController,UITextFieldDelegate {
         textSearchField.delegate = self
         myNameLabel.text = mc.PeerName
     }
-
+    
     override func viewDidAppear(_ animated: Bool) {
-        searchCloudlet.isEnabled = isCloudletConnected
-        searchCloud.isEnabled = isCloudConnected
+    //    searchCloudlet.isEnabled = isCloudletConnected
+    //    searchCloud.isEnabled = isCloudConnected
+    }
+    
+    @IBAction func sendExecutionData(_ sender: Any) {
+        mc.sendExecutionData()
     }
     
     func initiateMobileCloud(_ searchTermSent: String) {
@@ -51,7 +55,7 @@ class TextSearchViewController: UIViewController,UITextFieldDelegate {
         // set the search term
         (mc.getJob() as! TSJob).searchTerm = searchTermSent
     }
-
+    
     @IBAction func startBtn(_ sender: Any) {
         
         debugPrint("task started!")
@@ -66,19 +70,25 @@ class TextSearchViewController: UIViewController,UITextFieldDelegate {
         initiateMobileCloud(textSearchField.text!)
         // start executing
         mc.execute(type: OffloadingType.local)
+        textSearchField.resignFirstResponder()
     }
     
     @IBAction func searchCloudlet(_ sender: Any) {
         
         mc.setCloudletJob(job: TSCloudletJob())
         (mc.getCloudletJob() as! TSCloudletJob).searchTerm = textSearchField.text!
-        print((mc.getCloudletJob() as! TSCloudletJob).searchTerm ?? "no search term")
-
+        
         mc.execute(type:OffloadingType.cloudlet)
+        
+        textSearchField.resignFirstResponder()
+
     }
     
     @IBAction func searchCloud(_ sender: Any) {
+        // TODO: FIX THIS TO REFLECT CLOUD CLASS
+        searchCloudlet(self)
         
+        textSearchField.resignFirstResponder()
     }
     
     override func didReceiveMemoryWarning() {

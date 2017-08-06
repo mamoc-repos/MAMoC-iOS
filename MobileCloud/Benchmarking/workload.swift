@@ -30,13 +30,13 @@ class Workload  {
         result.workloadName = self.name()
         result.workloadUnits = self.units()
         
-        for _ in 1...4 {
+        for _ in 1...5 {
             self.reset()
             
             let timer = MCTimer()
             timer.start()
             self.worker()
-            timer.stop()
+            let _ = timer.stop()
             let elapsed = timer.getElapsedTimeInSeconds()
             
             result.runtimes.append(elapsed)

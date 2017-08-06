@@ -69,6 +69,8 @@ public var nodeToResult:[String:[MCNode:MCResult]] = [String:[MCNode:MCResult]](
 // keep a map of the session to the Nodes to the roundTrip time.  The roundtrip time is the time it takes for a node to go out and come back
 public var nodeToRoundTripTimer:[String:[MCNode:MCTimer]] = [String:[MCNode:MCTimer]]()
 
+public var nodeToCloudletRoundTripTimer:[String:[Cloudlet:MCTimer]] = [String:[Cloudlet:MCTimer]]()
+
 // To be used for the connections view controller sections
 public func stringForPeerConnectionState(_ state: MCSessionState) -> String {
     switch state {

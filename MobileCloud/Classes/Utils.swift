@@ -2,7 +2,7 @@
 //  Utils.swift
 //  MobileCloud
 //
-//  Created by Dawand Sulaiman on 17/06/2017.
+//  Created by Dawand Sulaiman on 17/05/2017.
 //  Copyright © 2017 StAndrews. All rights reserved.
 //
 
@@ -10,6 +10,7 @@ import Foundation
 
 /* This class uses both Luminous and System Services open source libraries to get specific features from the connected nearby devices
  */
+
 class Utils {
 
     static let system = SystemServices.init()
@@ -22,6 +23,14 @@ class Utils {
     
     class func getProcessorSpeed() -> Int {
         return system.processorSpeed
+    }
+    
+    class func getTotalMemory() -> Double {
+        return system.totalMemory
+    }
+    
+    class func getFreeMemoryPercentage() -> Double {
+        return system.freeMemoryinPercent
     }
     
     // NETWORK
@@ -48,7 +57,6 @@ class Utils {
             return "NO IP Address returned"
         }
     }
-    
     
     // BATTERY
     

@@ -40,6 +40,9 @@ class NodesTableViewController: UIViewController {
     
     open override func viewDidLoad() {
         
+        self.tabBarItem.image = UIImage(named: "radar.png")
+        self.tabBarController?.tabBar.items![0].image = UIImage(named: "radar.png")
+        
         CloudletConnected.textColor = UIColor.red
         remoteCloudConnected.textColor = UIColor.red
         
@@ -76,7 +79,27 @@ class NodesTableViewController: UIViewController {
     }
     
     @IBAction func connectToRemoteCloud(_ sender: Any) {
+        guard remoteCloudTextField.text != nil else {
+            return
+        }
         
+        let ip = remoteCloudTextField.text!
+        print(ip)
+        
+        // TODO: FIX THIS TO USE CLOUD CLASS
+        if !(ip.isEmpty) {
+            MobileCloud.MCInstance.cloudletInstance = Cloudlet(name: "remote cloud", cloudletURL: ip)
+            MobileCloud.MCInstance.cloudletInstance.webSocket.connect()
+            setupWebSocketSettings()
+            remoteCloudTextField.resignFirstResponder()
+            
+            // MARK: TEMPORARY
+            self.remoteCloudConnected.text = "Connected"
+            self.remoteCloudConnected.textColor = UIColor.green
+            self.remoteCloudButton.isEnabled = false
+            self.remoteCloudTextField.isEnabled = false
+        }
+
     }
     
     @IBAction func connectToCloudlet(_ sender: Any) {
@@ -91,13 +114,15 @@ class NodesTableViewController: UIViewController {
         // use user provided cloudlet IP address, otherwise use default cloudlet IP address
         if !(ip.isEmpty) {
             MobileCloud.MCInstance.cloudletInstance = Cloudlet(name: "cloudlet", cloudletURL: ip)
-            webSocket.connect()
-            print(webSocket.isConnected)
+            MobileCloud.MCInstance.cloudletInstance.webSocket.connect()
             setupWebSocketSettings()
+            cloudletTextField.resignFirstResponder()
         }
     }
 
     func setupWebSocketSettings() {
+        
+        let webSocket = MobileCloud.MCInstance.cloudletInstance.webSocket!
         
         //set this you want to ignore SSL cert validation, so a self signed SSL certificate can be used.
         webSocket.disableSSLCertValidation = true
@@ -105,7 +130,7 @@ class NodesTableViewController: UIViewController {
         // MARK: Web sockets delegate
         
         webSocket.onConnect = { [webSocket] in
-            webSocket?.write(string:"{\"username\":\"\(myName)\"}")
+            webSocket.write(string:"{\"username\":\"\(myName)\"}")
         }
         
         webSocket.onText = { [unowned self] text in
@@ -119,7 +144,6 @@ class NodesTableViewController: UIViewController {
                 
                 self.CloudletConnected.text = "Connected"
                 self.CloudletConnected.textColor = UIColor.green
-                //    self.cloudletTextField.text = CloudletDefaultURL
                 
                 // disable both the textfield and button
                 self.cloudletButton.isEnabled = false
@@ -147,7 +171,6 @@ class NodesTableViewController: UIViewController {
 }
 
 extension NodesTableViewController: UITableViewDelegate, UITableViewDataSource {
-    
     
     // MARK: - Table view data source
     
