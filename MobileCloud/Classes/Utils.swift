@@ -7,12 +7,14 @@
 //
 
 import Foundation
+import Luminous
+import SystemServices
 
 /* This class uses both Luminous and System Services open source libraries to get specific features from the connected nearby devices
  */
 
 class Utils {
-
+    
     static let system = SystemServices.init()
 
     // HARDWARE

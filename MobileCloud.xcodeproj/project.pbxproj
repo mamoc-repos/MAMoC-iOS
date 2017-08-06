@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0311F4EC1EB3AFCA33EB3FF4 /* Pods_MobileCloudTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6532DD6E47449649136BC5D5 /* Pods_MobileCloudTests.framework */; };
+		0EFE2660CE31D22CD57A53A3 /* Pods_SortingExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFD701F7D1DA65C7A1A5BBD6 /* Pods_SortingExample.framework */; };
+		7BFA65742E8595C6ED40A02D /* Pods_MobileCloud.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8942B8F1F3D274915486A346 /* Pods_MobileCloud.framework */; };
 		8B27CF0B1F278B5900539118 /* QSCloudJob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B27CF091F278B2B00539118 /* QSCloudJob.swift */; };
 		8B335EED1F327E5200695DDC /* FFT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B335EEC1F327E5200695DDC /* FFT.swift */; };
 		8B335EF11F33C16000695DDC /* large.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8B335EEE1F33C16000695DDC /* large.txt */; };
@@ -69,48 +72,14 @@
 		8B50BFAC1F15866C00234576 /* workloadUnits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B50BFA81F15866C00234576 /* workloadUnits.swift */; };
 		8B50BFAF1F15868E00234576 /* PeerKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B50BFAD1F15868E00234576 /* PeerKit.swift */; };
 		8B50BFB01F15868E00234576 /* PeerKit+cloudlet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B50BFAE1F15868E00234576 /* PeerKit+cloudlet.swift */; };
-		8B50BFD11F1586D100234576 /* route.h in Headers */ = {isa = PBXBuildFile; fileRef = 8B50BFB11F1586D100234576 /* route.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8B50BFD21F1586D100234576 /* SSAccelerometerInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 8B50BFB21F1586D100234576 /* SSAccelerometerInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8B50BFD31F1586D100234576 /* SSAccelerometerInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B50BFB31F1586D100234576 /* SSAccelerometerInfo.m */; };
-		8B50BFD41F1586D100234576 /* SSAccessoryInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 8B50BFB41F1586D100234576 /* SSAccessoryInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8B50BFD51F1586D100234576 /* SSAccessoryInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B50BFB51F1586D100234576 /* SSAccessoryInfo.m */; };
-		8B50BFD61F1586D100234576 /* SSApplicationInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 8B50BFB61F1586D100234576 /* SSApplicationInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8B50BFD71F1586D100234576 /* SSApplicationInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B50BFB71F1586D100234576 /* SSApplicationInfo.m */; };
-		8B50BFD81F1586D100234576 /* SSBatteryInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 8B50BFB81F1586D100234576 /* SSBatteryInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8B50BFD91F1586D100234576 /* SSBatteryInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B50BFB91F1586D100234576 /* SSBatteryInfo.m */; };
-		8B50BFDA1F1586D100234576 /* SSCarrierInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 8B50BFBA1F1586D100234576 /* SSCarrierInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8B50BFDB1F1586D100234576 /* SSCarrierInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B50BFBB1F1586D100234576 /* SSCarrierInfo.m */; };
-		8B50BFDC1F1586D100234576 /* SSDiskInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 8B50BFBC1F1586D100234576 /* SSDiskInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8B50BFDD1F1586D100234576 /* SSDiskInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B50BFBD1F1586D100234576 /* SSDiskInfo.m */; };
-		8B50BFDE1F1586D100234576 /* SSHardwareInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 8B50BFBE1F1586D100234576 /* SSHardwareInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8B50BFDF1F1586D100234576 /* SSHardwareInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B50BFBF1F1586D100234576 /* SSHardwareInfo.m */; };
-		8B50BFE01F1586D100234576 /* SSJailbreakCheck.h in Headers */ = {isa = PBXBuildFile; fileRef = 8B50BFC01F1586D100234576 /* SSJailbreakCheck.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8B50BFE11F1586D100234576 /* SSJailbreakCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B50BFC11F1586D100234576 /* SSJailbreakCheck.m */; };
-		8B50BFE21F1586D100234576 /* SSLocalizationInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 8B50BFC21F1586D100234576 /* SSLocalizationInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8B50BFE31F1586D100234576 /* SSLocalizationInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B50BFC31F1586D100234576 /* SSLocalizationInfo.m */; };
-		8B50BFE41F1586D100234576 /* SSLSecurity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B50BFC41F1586D100234576 /* SSLSecurity.swift */; };
-		8B50BFE51F1586D100234576 /* SSMemoryInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 8B50BFC51F1586D100234576 /* SSMemoryInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8B50BFE61F1586D100234576 /* SSMemoryInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B50BFC61F1586D100234576 /* SSMemoryInfo.m */; };
-		8B50BFE71F1586D100234576 /* SSNetworkInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 8B50BFC71F1586D100234576 /* SSNetworkInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8B50BFE81F1586D100234576 /* SSNetworkInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B50BFC81F1586D100234576 /* SSNetworkInfo.m */; };
-		8B50BFE91F1586D100234576 /* SSProcessInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 8B50BFC91F1586D100234576 /* SSProcessInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8B50BFEA1F1586D100234576 /* SSProcessInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B50BFCA1F1586D100234576 /* SSProcessInfo.m */; };
-		8B50BFEB1F1586D100234576 /* SSProcessorInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 8B50BFCB1F1586D100234576 /* SSProcessorInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8B50BFEC1F1586D100234576 /* SSProcessorInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B50BFCC1F1586D100234576 /* SSProcessorInfo.m */; };
-		8B50BFED1F1586D100234576 /* SSUUID.h in Headers */ = {isa = PBXBuildFile; fileRef = 8B50BFCD1F1586D100234576 /* SSUUID.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8B50BFEE1F1586D100234576 /* SSUUID.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B50BFCE1F1586D100234576 /* SSUUID.m */; };
-		8B50BFEF1F1586D100234576 /* SystemServices.h in Headers */ = {isa = PBXBuildFile; fileRef = 8B50BFCF1F1586D100234576 /* SystemServices.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8B50BFF01F1586D100234576 /* SystemServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B50BFD01F1586D100234576 /* SystemServices.m */; };
 		8B50BFF21F159E1F00234576 /* radar.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B50BFF11F159E1F00234576 /* radar.png */; };
 		8B7A241E1EBE7F8300F936D7 /* DeviceProfiler.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 8B7A241D1EBE7F8300F936D7 /* DeviceProfiler.xcdatamodel */; };
 		8B7A24251EBE8C9700F936D7 /* MCStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B7A24241EBE8C9700F936D7 /* MCStoryboard.storyboard */; };
 		8B8387F51EF89CEF0030984F /* (null) in CopyFiles */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		8BA41C241EFB413100CE6D07 /* Luminous.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA41C221EFB413100CE6D07 /* Luminous.swift */; };
-		8BA41C251EFB413100CE6D07 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA41C231EFB413100CE6D07 /* Reachability.swift */; };
 		8BA41C681EFD8B3A00CE6D07 /* SwiftEventBus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA41C671EFD8B3A00CE6D07 /* SwiftEventBus.swift */; };
-		8BA41C781EFDCF2D00CE6D07 /* WebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA41C761EFDCF2D00CE6D07 /* WebSocket.swift */; };
 		8BD275A11EBBFA1900C89F0F /* MobileCloud.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BD275971EBBFA1900C89F0F /* MobileCloud.framework */; };
 		8BD275A81EBBFA1900C89F0F /* MobileCloud.h in Headers */ = {isa = PBXBuildFile; fileRef = 8BD2759A1EBBFA1900C89F0F /* MobileCloud.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DEF3B6CC7CECF8179EB34F56 /* Pods_SearchingExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 477676540C80D3BADB504EB6 /* Pods_SearchingExample.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -173,6 +142,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0CFA6E7F767D2C35329807E4 /* Pods-SearchingExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SearchingExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-SearchingExample/Pods-SearchingExample.release.xcconfig"; sourceTree = "<group>"; };
+		2375701CB46C31BD28504B98 /* Pods-MobileCloud.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobileCloud.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MobileCloud/Pods-MobileCloud.debug.xcconfig"; sourceTree = "<group>"; };
+		2DF5E9D58B3822EDCCDD1056 /* Pods-MobileCloudTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobileCloudTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MobileCloudTests/Pods-MobileCloudTests.debug.xcconfig"; sourceTree = "<group>"; };
+		477676540C80D3BADB504EB6 /* Pods_SearchingExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SearchingExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6532DD6E47449649136BC5D5 /* Pods_MobileCloudTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MobileCloudTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		87F7E9BB88B3DD9DF31572AF /* Pods-SortingExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SortingExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-SortingExample/Pods-SortingExample.release.xcconfig"; sourceTree = "<group>"; };
+		8942B8F1F3D274915486A346 /* Pods_MobileCloud.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MobileCloud.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B27CF091F278B2B00539118 /* QSCloudJob.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QSCloudJob.swift; path = Examples/SortingExample/QSCloudJob.swift; sourceTree = SOURCE_ROOT; };
 		8B335EEC1F327E5200695DDC /* FFT.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FFT.swift; sourceTree = "<group>"; };
 		8B335EEE1F33C16000695DDC /* large.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = large.txt; path = Examples/Common/large.txt; sourceTree = SOURCE_ROOT; };
@@ -223,49 +199,19 @@
 		8B50BFA81F15866C00234576 /* workloadUnits.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = workloadUnits.swift; path = Benchmarking/workloadUnits.swift; sourceTree = "<group>"; };
 		8B50BFAD1F15868E00234576 /* PeerKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PeerKit.swift; path = PeerKit/PeerKit.swift; sourceTree = "<group>"; };
 		8B50BFAE1F15868E00234576 /* PeerKit+cloudlet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "PeerKit+cloudlet.swift"; path = "PeerKit/PeerKit+cloudlet.swift"; sourceTree = "<group>"; };
-		8B50BFB11F1586D100234576 /* route.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = route.h; path = SystemServices/route.h; sourceTree = "<group>"; };
-		8B50BFB21F1586D100234576 /* SSAccelerometerInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SSAccelerometerInfo.h; path = SystemServices/SSAccelerometerInfo.h; sourceTree = "<group>"; };
-		8B50BFB31F1586D100234576 /* SSAccelerometerInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SSAccelerometerInfo.m; path = SystemServices/SSAccelerometerInfo.m; sourceTree = "<group>"; };
-		8B50BFB41F1586D100234576 /* SSAccessoryInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SSAccessoryInfo.h; path = SystemServices/SSAccessoryInfo.h; sourceTree = "<group>"; };
-		8B50BFB51F1586D100234576 /* SSAccessoryInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SSAccessoryInfo.m; path = SystemServices/SSAccessoryInfo.m; sourceTree = "<group>"; };
-		8B50BFB61F1586D100234576 /* SSApplicationInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SSApplicationInfo.h; path = SystemServices/SSApplicationInfo.h; sourceTree = "<group>"; };
-		8B50BFB71F1586D100234576 /* SSApplicationInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SSApplicationInfo.m; path = SystemServices/SSApplicationInfo.m; sourceTree = "<group>"; };
-		8B50BFB81F1586D100234576 /* SSBatteryInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SSBatteryInfo.h; path = SystemServices/SSBatteryInfo.h; sourceTree = "<group>"; };
-		8B50BFB91F1586D100234576 /* SSBatteryInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SSBatteryInfo.m; path = SystemServices/SSBatteryInfo.m; sourceTree = "<group>"; };
-		8B50BFBA1F1586D100234576 /* SSCarrierInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SSCarrierInfo.h; path = SystemServices/SSCarrierInfo.h; sourceTree = "<group>"; };
-		8B50BFBB1F1586D100234576 /* SSCarrierInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SSCarrierInfo.m; path = SystemServices/SSCarrierInfo.m; sourceTree = "<group>"; };
-		8B50BFBC1F1586D100234576 /* SSDiskInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SSDiskInfo.h; path = SystemServices/SSDiskInfo.h; sourceTree = "<group>"; };
-		8B50BFBD1F1586D100234576 /* SSDiskInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SSDiskInfo.m; path = SystemServices/SSDiskInfo.m; sourceTree = "<group>"; };
-		8B50BFBE1F1586D100234576 /* SSHardwareInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SSHardwareInfo.h; path = SystemServices/SSHardwareInfo.h; sourceTree = "<group>"; };
-		8B50BFBF1F1586D100234576 /* SSHardwareInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SSHardwareInfo.m; path = SystemServices/SSHardwareInfo.m; sourceTree = "<group>"; };
-		8B50BFC01F1586D100234576 /* SSJailbreakCheck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SSJailbreakCheck.h; path = SystemServices/SSJailbreakCheck.h; sourceTree = "<group>"; };
-		8B50BFC11F1586D100234576 /* SSJailbreakCheck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SSJailbreakCheck.m; path = SystemServices/SSJailbreakCheck.m; sourceTree = "<group>"; };
-		8B50BFC21F1586D100234576 /* SSLocalizationInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SSLocalizationInfo.h; path = SystemServices/SSLocalizationInfo.h; sourceTree = "<group>"; };
-		8B50BFC31F1586D100234576 /* SSLocalizationInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SSLocalizationInfo.m; path = SystemServices/SSLocalizationInfo.m; sourceTree = "<group>"; };
-		8B50BFC41F1586D100234576 /* SSLSecurity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SSLSecurity.swift; path = SystemServices/SSLSecurity.swift; sourceTree = "<group>"; };
-		8B50BFC51F1586D100234576 /* SSMemoryInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SSMemoryInfo.h; path = SystemServices/SSMemoryInfo.h; sourceTree = "<group>"; };
-		8B50BFC61F1586D100234576 /* SSMemoryInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SSMemoryInfo.m; path = SystemServices/SSMemoryInfo.m; sourceTree = "<group>"; };
-		8B50BFC71F1586D100234576 /* SSNetworkInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SSNetworkInfo.h; path = SystemServices/SSNetworkInfo.h; sourceTree = "<group>"; };
-		8B50BFC81F1586D100234576 /* SSNetworkInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SSNetworkInfo.m; path = SystemServices/SSNetworkInfo.m; sourceTree = "<group>"; };
-		8B50BFC91F1586D100234576 /* SSProcessInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SSProcessInfo.h; path = SystemServices/SSProcessInfo.h; sourceTree = "<group>"; };
-		8B50BFCA1F1586D100234576 /* SSProcessInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SSProcessInfo.m; path = SystemServices/SSProcessInfo.m; sourceTree = "<group>"; };
-		8B50BFCB1F1586D100234576 /* SSProcessorInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SSProcessorInfo.h; path = SystemServices/SSProcessorInfo.h; sourceTree = "<group>"; };
-		8B50BFCC1F1586D100234576 /* SSProcessorInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SSProcessorInfo.m; path = SystemServices/SSProcessorInfo.m; sourceTree = "<group>"; };
-		8B50BFCD1F1586D100234576 /* SSUUID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SSUUID.h; path = SystemServices/SSUUID.h; sourceTree = "<group>"; };
-		8B50BFCE1F1586D100234576 /* SSUUID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SSUUID.m; path = SystemServices/SSUUID.m; sourceTree = "<group>"; };
-		8B50BFCF1F1586D100234576 /* SystemServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SystemServices.h; path = SystemServices/SystemServices.h; sourceTree = "<group>"; };
-		8B50BFD01F1586D100234576 /* SystemServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SystemServices.m; path = SystemServices/SystemServices.m; sourceTree = "<group>"; };
 		8B50BFF11F159E1F00234576 /* radar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = radar.png; sourceTree = "<group>"; };
 		8B7A241D1EBE7F8300F936D7 /* DeviceProfiler.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DeviceProfiler.xcdatamodel; sourceTree = "<group>"; };
 		8B7A24241EBE8C9700F936D7 /* MCStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MCStoryboard.storyboard; sourceTree = "<group>"; };
-		8BA41C221EFB413100CE6D07 /* Luminous.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Luminous.swift; sourceTree = "<group>"; };
-		8BA41C231EFB413100CE6D07 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		8BA41C671EFD8B3A00CE6D07 /* SwiftEventBus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftEventBus.swift; sourceTree = "<group>"; };
-		8BA41C761EFDCF2D00CE6D07 /* WebSocket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebSocket.swift; sourceTree = "<group>"; };
 		8BD275971EBBFA1900C89F0F /* MobileCloud.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MobileCloud.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BD2759A1EBBFA1900C89F0F /* MobileCloud.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MobileCloud.h; sourceTree = "<group>"; };
 		8BD2759B1EBBFA1900C89F0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8BD275A01EBBFA1900C89F0F /* MobileCloudTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MobileCloudTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A5A5F983030BE5DAD06F2ECB /* Pods-SearchingExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SearchingExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SearchingExample/Pods-SearchingExample.debug.xcconfig"; sourceTree = "<group>"; };
+		B1D2E06FE2EC3B4F13261DB4 /* Pods-MobileCloud.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobileCloud.release.xcconfig"; path = "Pods/Target Support Files/Pods-MobileCloud/Pods-MobileCloud.release.xcconfig"; sourceTree = "<group>"; };
+		DFD701F7D1DA65C7A1A5BBD6 /* Pods_SortingExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SortingExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB7EAEA035A8359B51EDC9C9 /* Pods-SortingExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SortingExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SortingExample/Pods-SortingExample.debug.xcconfig"; sourceTree = "<group>"; };
+		F38078D27559B8E2B3F78ACC /* Pods-MobileCloudTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobileCloudTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MobileCloudTests/Pods-MobileCloudTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -273,6 +219,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BFA65742E8595C6ED40A02D /* Pods_MobileCloud.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,6 +228,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B50BDC11F12FF7F00234576 /* MobileCloud.framework in Frameworks */,
+				DEF3B6CC7CECF8179EB34F56 /* Pods_SearchingExample.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,6 +237,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B50BDC61F12FF8300234576 /* MobileCloud.framework in Frameworks */,
+				0EFE2660CE31D22CD57A53A3 /* Pods_SortingExample.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,12 +246,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				8BD275A11EBBFA1900C89F0F /* MobileCloud.framework in Frameworks */,
+				0311F4EC1EB3AFCA33EB3FF4 /* Pods_MobileCloudTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		003FC43693CE61EA035B0845 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8942B8F1F3D274915486A346 /* Pods_MobileCloud.framework */,
+				6532DD6E47449649136BC5D5 /* Pods_MobileCloudTests.framework */,
+				477676540C80D3BADB504EB6 /* Pods_SearchingExample.framework */,
+				DFD701F7D1DA65C7A1A5BBD6 /* Pods_SortingExample.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		8B50BD7D1F12FD9400234576 /* SearchingExample */ = {
 			isa = PBXGroup;
 			children = (
@@ -316,7 +277,6 @@
 				8B50BDFA1F13007500234576 /* Main.storyboard */,
 				8B50BDFD1F1300D200234576 /* Info.plist */,
 				8B50BDD01F13000400234576 /* Assets.xcassets */,
-				8B50BDAA1F12FF0800234576 /* Commons */,
 			);
 			path = SearchingExample;
 			sourceTree = "<group>";
@@ -348,6 +308,7 @@
 				8B50BDE21F13001800234576 /* StreamReader.swift */,
 			);
 			name = Commons;
+			path = ../SearchingExample;
 			sourceTree = "<group>";
 		};
 		8B50BFA41F15864A00234576 /* Benchmarking */ = {
@@ -400,60 +361,9 @@
 			children = (
 				8B50BFA41F15864A00234576 /* Benchmarking */,
 				8B8388451EF977E80030984F /* PeerKit */,
-				8BA41C7C1EFE761E00CE6D07 /* Starscream */,
 				8BA41C7B1EFE761100CE6D07 /* Swift Event Bus */,
-				8BA41C7A1EFE760900CE6D07 /* Luminous */,
-				8BA41C791EFE75F800CE6D07 /* System Services */,
 			);
 			name = ThirdPartyLibs;
-			sourceTree = "<group>";
-		};
-		8BA41C791EFE75F800CE6D07 /* System Services */ = {
-			isa = PBXGroup;
-			children = (
-				8B50BFB11F1586D100234576 /* route.h */,
-				8B50BFB21F1586D100234576 /* SSAccelerometerInfo.h */,
-				8B50BFB31F1586D100234576 /* SSAccelerometerInfo.m */,
-				8B50BFB41F1586D100234576 /* SSAccessoryInfo.h */,
-				8B50BFB51F1586D100234576 /* SSAccessoryInfo.m */,
-				8B50BFB61F1586D100234576 /* SSApplicationInfo.h */,
-				8B50BFB71F1586D100234576 /* SSApplicationInfo.m */,
-				8B50BFB81F1586D100234576 /* SSBatteryInfo.h */,
-				8B50BFB91F1586D100234576 /* SSBatteryInfo.m */,
-				8B50BFBA1F1586D100234576 /* SSCarrierInfo.h */,
-				8B50BFBB1F1586D100234576 /* SSCarrierInfo.m */,
-				8B50BFBC1F1586D100234576 /* SSDiskInfo.h */,
-				8B50BFBD1F1586D100234576 /* SSDiskInfo.m */,
-				8B50BFBE1F1586D100234576 /* SSHardwareInfo.h */,
-				8B50BFBF1F1586D100234576 /* SSHardwareInfo.m */,
-				8B50BFC01F1586D100234576 /* SSJailbreakCheck.h */,
-				8B50BFC11F1586D100234576 /* SSJailbreakCheck.m */,
-				8B50BFC21F1586D100234576 /* SSLocalizationInfo.h */,
-				8B50BFC31F1586D100234576 /* SSLocalizationInfo.m */,
-				8B50BFC41F1586D100234576 /* SSLSecurity.swift */,
-				8B50BFC51F1586D100234576 /* SSMemoryInfo.h */,
-				8B50BFC61F1586D100234576 /* SSMemoryInfo.m */,
-				8B50BFC71F1586D100234576 /* SSNetworkInfo.h */,
-				8B50BFC81F1586D100234576 /* SSNetworkInfo.m */,
-				8B50BFC91F1586D100234576 /* SSProcessInfo.h */,
-				8B50BFCA1F1586D100234576 /* SSProcessInfo.m */,
-				8B50BFCB1F1586D100234576 /* SSProcessorInfo.h */,
-				8B50BFCC1F1586D100234576 /* SSProcessorInfo.m */,
-				8B50BFCD1F1586D100234576 /* SSUUID.h */,
-				8B50BFCE1F1586D100234576 /* SSUUID.m */,
-				8B50BFCF1F1586D100234576 /* SystemServices.h */,
-				8B50BFD01F1586D100234576 /* SystemServices.m */,
-			);
-			name = "System Services";
-			sourceTree = "<group>";
-		};
-		8BA41C7A1EFE760900CE6D07 /* Luminous */ = {
-			isa = PBXGroup;
-			children = (
-				8BA41C221EFB413100CE6D07 /* Luminous.swift */,
-				8BA41C231EFB413100CE6D07 /* Reachability.swift */,
-			);
-			name = Luminous;
 			sourceTree = "<group>";
 		};
 		8BA41C7B1EFE761100CE6D07 /* Swift Event Bus */ = {
@@ -464,14 +374,6 @@
 			name = "Swift Event Bus";
 			sourceTree = "<group>";
 		};
-		8BA41C7C1EFE761E00CE6D07 /* Starscream */ = {
-			isa = PBXGroup;
-			children = (
-				8BA41C761EFDCF2D00CE6D07 /* WebSocket.swift */,
-			);
-			name = Starscream;
-			sourceTree = "<group>";
-		};
 		8BD2758D1EBBFA1900C89F0F = {
 			isa = PBXGroup;
 			children = (
@@ -479,6 +381,8 @@
 				8B50BD7D1F12FD9400234576 /* SearchingExample */,
 				8B50BD931F12FE4C00234576 /* SortingExample */,
 				8BD275981EBBFA1900C89F0F /* Products */,
+				FD1FF0E320F1DF10648AAD67 /* Pods */,
+				003FC43693CE61EA035B0845 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -499,6 +403,7 @@
 				8B7A24241EBE8C9700F936D7 /* MCStoryboard.storyboard */,
 				8B8388461EF977F70030984F /* Classes */,
 				8B7A241D1EBE7F8300F936D7 /* DeviceProfiler.xcdatamodel */,
+				8B50BDAA1F12FF0800234576 /* Commons */,
 				8BA41C261EFB413800CE6D07 /* ThirdPartyLibs */,
 				8BD275BB1EBCC32300C89F0F /* Supporting Files */,
 			);
@@ -514,6 +419,21 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		FD1FF0E320F1DF10648AAD67 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2375701CB46C31BD28504B98 /* Pods-MobileCloud.debug.xcconfig */,
+				B1D2E06FE2EC3B4F13261DB4 /* Pods-MobileCloud.release.xcconfig */,
+				2DF5E9D58B3822EDCCDD1056 /* Pods-MobileCloudTests.debug.xcconfig */,
+				F38078D27559B8E2B3F78ACC /* Pods-MobileCloudTests.release.xcconfig */,
+				A5A5F983030BE5DAD06F2ECB /* Pods-SearchingExample.debug.xcconfig */,
+				0CFA6E7F767D2C35329807E4 /* Pods-SearchingExample.release.xcconfig */,
+				EB7EAEA035A8359B51EDC9C9 /* Pods-SortingExample.debug.xcconfig */,
+				87F7E9BB88B3DD9DF31572AF /* Pods-SortingExample.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -521,23 +441,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B50BFD21F1586D100234576 /* SSAccelerometerInfo.h in Headers */,
-				8B50BFE71F1586D100234576 /* SSNetworkInfo.h in Headers */,
-				8B50BFDA1F1586D100234576 /* SSCarrierInfo.h in Headers */,
-				8B50BFE21F1586D100234576 /* SSLocalizationInfo.h in Headers */,
-				8B50BFE91F1586D100234576 /* SSProcessInfo.h in Headers */,
-				8B50BFD41F1586D100234576 /* SSAccessoryInfo.h in Headers */,
-				8B50BFDE1F1586D100234576 /* SSHardwareInfo.h in Headers */,
-				8B50BFEB1F1586D100234576 /* SSProcessorInfo.h in Headers */,
-				8B50BFD81F1586D100234576 /* SSBatteryInfo.h in Headers */,
-				8B50BFD61F1586D100234576 /* SSApplicationInfo.h in Headers */,
-				8B50BFEF1F1586D100234576 /* SystemServices.h in Headers */,
-				8B50BFE51F1586D100234576 /* SSMemoryInfo.h in Headers */,
-				8B50BFED1F1586D100234576 /* SSUUID.h in Headers */,
-				8B50BFD11F1586D100234576 /* route.h in Headers */,
-				8B50BFE01F1586D100234576 /* SSJailbreakCheck.h in Headers */,
 				8BD275A81EBBFA1900C89F0F /* MobileCloud.h in Headers */,
-				8B50BFDC1F1586D100234576 /* SSDiskInfo.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -548,10 +452,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8B50BD8D1F12FD9400234576 /* Build configuration list for PBXNativeTarget "SearchingExample" */;
 			buildPhases = (
+				E6A5AE120499A98AF8817AAF /* [CP] Check Pods Manifest.lock */,
 				8B50BD781F12FD9400234576 /* Sources */,
 				8B50BD791F12FD9400234576 /* Frameworks */,
 				8B50BD7A1F12FD9400234576 /* Resources */,
 				8B50BDC51F12FF7F00234576 /* Embed Frameworks */,
+				4FC39A16E47F217616E85DD5 /* [CP] Embed Pods Frameworks */,
+				585C4C554832BA6E065F0CF7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -567,10 +474,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8B50BDA11F12FE4C00234576 /* Build configuration list for PBXNativeTarget "SortingExample" */;
 			buildPhases = (
+				BC2D93B25147D4AA3B1447BF /* [CP] Check Pods Manifest.lock */,
 				8B50BD8E1F12FE4C00234576 /* Sources */,
 				8B50BD8F1F12FE4C00234576 /* Frameworks */,
 				8B50BD901F12FE4C00234576 /* Resources */,
 				8B50BDCA1F12FF8300234576 /* Embed Frameworks */,
+				0D340B6AE81B824F544935FE /* [CP] Embed Pods Frameworks */,
+				E4B6B107B69A64AC5750F699 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -586,11 +496,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8BD275AB1EBBFA1900C89F0F /* Build configuration list for PBXNativeTarget "MobileCloud" */;
 			buildPhases = (
+				172463C830C44206A5712904 /* [CP] Check Pods Manifest.lock */,
 				8BD275941EBBFA1900C89F0F /* Headers */,
 				8BD276201EBE09EF00C89F0F /* Sources */,
 				46BF0EA8A4C9D6C6CE731643 /* Frameworks */,
 				8B7A24221EBE8A9400F936D7 /* Resources */,
 				8B8387F41EF89CE40030984F /* CopyFiles */,
+				22F92E47C4B9CD3F051D8BC0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -605,9 +517,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8BD275AE1EBBFA1900C89F0F /* Build configuration list for PBXNativeTarget "MobileCloudTests" */;
 			buildPhases = (
+				B15FEBBAC173CAD7EBC85471 /* [CP] Check Pods Manifest.lock */,
 				8BD2759C1EBBFA1900C89F0F /* Sources */,
 				8BD2759D1EBBFA1900C89F0F /* Frameworks */,
 				8BD2759E1EBBFA1900C89F0F /* Resources */,
+				0A8C9D81912B66F25F258B4D /* [CP] Embed Pods Frameworks */,
+				2C32B49AB10BC2D5A09EEA1F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -724,6 +639,213 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0A8C9D81912B66F25F258B4D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MobileCloudTests/Pods-MobileCloudTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Deviice/Deviice.framework",
+				"${BUILT_PRODUCTS_DIR}/Luminous/Luminous.framework",
+				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
+				"${BUILT_PRODUCTS_DIR}/SystemServices/SystemServices.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Deviice.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Luminous.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SystemServices.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MobileCloudTests/Pods-MobileCloudTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		0D340B6AE81B824F544935FE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SortingExample/Pods-SortingExample-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Deviice/Deviice.framework",
+				"${BUILT_PRODUCTS_DIR}/Luminous/Luminous.framework",
+				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
+				"${BUILT_PRODUCTS_DIR}/SystemServices/SystemServices.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Deviice.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Luminous.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SystemServices.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SortingExample/Pods-SortingExample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		172463C830C44206A5712904 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MobileCloud-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		22F92E47C4B9CD3F051D8BC0 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MobileCloud/Pods-MobileCloud-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2C32B49AB10BC2D5A09EEA1F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MobileCloudTests/Pods-MobileCloudTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4FC39A16E47F217616E85DD5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SearchingExample/Pods-SearchingExample-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Deviice/Deviice.framework",
+				"${BUILT_PRODUCTS_DIR}/Luminous/Luminous.framework",
+				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
+				"${BUILT_PRODUCTS_DIR}/SystemServices/SystemServices.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Deviice.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Luminous.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SystemServices.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SearchingExample/Pods-SearchingExample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		585C4C554832BA6E065F0CF7 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SearchingExample/Pods-SearchingExample-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B15FEBBAC173CAD7EBC85471 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MobileCloudTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BC2D93B25147D4AA3B1447BF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SortingExample-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E4B6B107B69A64AC5750F699 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SortingExample/Pods-SortingExample-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E6A5AE120499A98AF8817AAF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SearchingExample-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		8B50BD781F12FD9400234576 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -768,48 +890,29 @@
 			files = (
 				8B50BF941F15860400234576 /* MCResult.swift in Sources */,
 				8B7A241E1EBE7F8300F936D7 /* DeviceProfiler.xcdatamodel in Sources */,
-				8B50BFE11F1586D100234576 /* SSJailbreakCheck.m in Sources */,
-				8B50BFD71F1586D100234576 /* SSApplicationInfo.m in Sources */,
 				8B335EF81F33C9A900695DDC /* StreamReader.swift in Sources */,
-				8B50BFEE1F1586D100234576 /* SSUUID.m in Sources */,
 				8B50BF8E1F15860400234576 /* Cloudlet.swift in Sources */,
-				8B50BFDB1F1586D100234576 /* SSCarrierInfo.m in Sources */,
 				8B50BF931F15860400234576 /* MCNode.swift in Sources */,
-				8B50BFE81F1586D100234576 /* SSNetworkInfo.m in Sources */,
 				8B50BF921F15860400234576 /* MCJob.swift in Sources */,
 				8B50BF8F1F15860400234576 /* CloudletJob.swift in Sources */,
 				8B50BF911F15860400234576 /* MCConfig.swift in Sources */,
 				8B335EED1F327E5200695DDC /* FFT.swift in Sources */,
 				8B50BFA21F15863300234576 /* Session.swift in Sources */,
-				8B50BFE41F1586D100234576 /* SSLSecurity.swift in Sources */,
 				8B50BFA91F15866C00234576 /* mandelbrot.swift in Sources */,
-				8B50BFD31F1586D100234576 /* SSAccelerometerInfo.m in Sources */,
 				8B335EF71F33C9A000695DDC /* readTextFile.swift in Sources */,
-				8B50BFE61F1586D100234576 /* SSMemoryInfo.m in Sources */,
 				8B50BF951F15860400234576 /* MCTask.swift in Sources */,
-				8B50BFE31F1586D100234576 /* SSLocalizationInfo.m in Sources */,
 				8B50BFA31F15863300234576 /* Transceiver.swift in Sources */,
 				8B50BF981F15860400234576 /* NodesTableViewController.swift in Sources */,
-				8B50BFF01F1586D100234576 /* SystemServices.m in Sources */,
 				8B50BFAB1F15866C00234576 /* workloadResult.swift in Sources */,
 				8B50BF901F15860400234576 /* MCCoding.swift in Sources */,
-				8B50BFDF1F1586D100234576 /* SSHardwareInfo.m in Sources */,
 				8B50BFAA1F15866C00234576 /* workload.swift in Sources */,
 				8B50BF971F15860400234576 /* MobileCloud.swift in Sources */,
 				8B50BFA01F15863300234576 /* Advertiser.swift in Sources */,
-				8BA41C241EFB413100CE6D07 /* Luminous.swift in Sources */,
-				8B50BFEA1F1586D100234576 /* SSProcessInfo.m in Sources */,
 				8B50BFA11F15863300234576 /* Browser.swift in Sources */,
-				8B50BFDD1F1586D100234576 /* SSDiskInfo.m in Sources */,
 				8B50BFAF1F15868E00234576 /* PeerKit.swift in Sources */,
-				8B50BFEC1F1586D100234576 /* SSProcessorInfo.m in Sources */,
 				8B50BF9B1F15860400234576 /* Utils.swift in Sources */,
-				8BA41C251EFB413100CE6D07 /* Reachability.swift in Sources */,
 				8B50BFAC1F15866C00234576 /* workloadUnits.swift in Sources */,
-				8B50BFD91F1586D100234576 /* SSBatteryInfo.m in Sources */,
-				8BA41C781EFDCF2D00CE6D07 /* WebSocket.swift in Sources */,
 				8B50BF961F15860400234576 /* MCTimer.swift in Sources */,
-				8B50BFD51F1586D100234576 /* SSAccessoryInfo.m in Sources */,
 				8BA41C681EFD8B3A00CE6D07 /* SwiftEventBus.swift in Sources */,
 				8B50BFB01F15868E00234576 /* PeerKit+cloudlet.swift in Sources */,
 			);
@@ -857,6 +960,7 @@
 /* Begin XCBuildConfiguration section */
 		8B50BD8B1F12FD9400234576 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A5A5F983030BE5DAD06F2ECB /* Pods-SearchingExample.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -873,6 +977,7 @@
 		};
 		8B50BD8C1F12FD9400234576 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0CFA6E7F767D2C35329807E4 /* Pods-SearchingExample.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -889,6 +994,7 @@
 		};
 		8B50BDA21F12FE4C00234576 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EB7EAEA035A8359B51EDC9C9 /* Pods-SortingExample.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -907,6 +1013,7 @@
 		};
 		8B50BDA31F12FE4C00234576 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 87F7E9BB88B3DD9DF31572AF /* Pods-SortingExample.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1027,6 +1134,7 @@
 		};
 		8BD275AC1EBBFA1900C89F0F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2375701CB46C31BD28504B98 /* Pods-MobileCloud.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_ENABLE_MODULES = YES;
@@ -1051,6 +1159,7 @@
 		};
 		8BD275AD1EBBFA1900C89F0F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B1D2E06FE2EC3B4F13261DB4 /* Pods-MobileCloud.release.xcconfig */;
 			buildSettings = {
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_ENABLE_MODULES = YES;
@@ -1074,6 +1183,7 @@
 		};
 		8BD275AF1EBBFA1900C89F0F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2DF5E9D58B3822EDCCDD1056 /* Pods-MobileCloudTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 2R8KNQM8C5;
@@ -1087,6 +1197,7 @@
 		};
 		8BD275B01EBBFA1900C89F0F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F38078D27559B8E2B3F78ACC /* Pods-MobileCloudTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 2R8KNQM8C5;

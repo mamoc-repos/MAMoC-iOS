@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Starscream
 
 // used for cloudlet connections
 //public let CloudletDefaultURL = "192.168.x.x:8080"

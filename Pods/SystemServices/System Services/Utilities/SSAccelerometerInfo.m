@@ -45,18 +45,16 @@
 + (UIInterfaceOrientation)deviceOrientation {
     // Get the device's current orientation
     @try {
-        #if !(defined(__has_feature) && __has_feature(attribute_availability_app_extension))
-            // Device orientation
-            UIInterfaceOrientation Orientation = [[UIApplication sharedApplication] statusBarOrientation];
+        // Device orientation
+        UIInterfaceOrientation Orientation = [[UIApplication sharedApplication] statusBarOrientation];
         
-            // Successful
-            return Orientation;
-        #endif
+        // Successful
+        return Orientation;
     }
     @catch (NSException *exception) {
+        // Error
+        return -1;
     }
-    // Error
-    return -1;
 }
 
 // Start logging motion data

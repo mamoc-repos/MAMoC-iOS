@@ -1,0 +1,6 @@
+framework module Pods_SortingExample {
+  umbrella header "Pods-SortingExample-umbrella.h"
+
+  export *
+  module * { export * }
+}
