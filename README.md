@@ -14,18 +14,9 @@ mc.setJob(job: TSJob())
 mc.execute(type: OffloadingType.auto)
 ```
 
-There are two working examples provided as app targets when you open the XCode project. 
+There are two working [examples](https://github.com/dawand/MAMoC/tree/master/Examples) provided as app targets when you open the XCode project.
 
-For setting up the container on both cloudlet and remote clouds check the [documentation](https://github.com/dawand/MAMoC/wiki/Documentation).
-
-## Installation
-
-### Cocoapods
-TBD
-
-### Manual
-TBD
-
+For setting up the MAMoC server component on both cloudlet and remote cloud servers, check the [server component of MAMoC](https://github.com/dawand/SwiftServerContainer) repository.
 
 ## Open source third party libraries
 - [PeerKit](https://github.com/jpsim/PeerKit) (An open-source Swift framework for building event-driven, zero-config Multipeer Connectivity apps)
@@ -33,10 +24,3 @@ TBD
 - [SwiftEventBus](https://github.com/cesarferreira/SwiftEventBus) (A publish/subscribe EventBus optimized for iOS)
 - [Luminous](https://github.com/andrealufino/Luminous) (iOS system information )
 - [iOS-System-Services](https://github.com/Shmoopi/iOS-System-Services) (iOS System Services is a class to gather all available information about a device.)
-- [Vapor](https://github.com/vapor/vapor) (A server-side Swift web framework)
-
-## TODO
-
-- [x] Cloudlet setup on local and remote servers
-- [ ] Cloudlet container migration for user mobility
-- [ ] Document the API
