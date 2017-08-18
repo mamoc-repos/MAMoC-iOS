@@ -76,8 +76,7 @@ open class MobileCloud {
             let selfNode:MCNode = MCNode.getMe()
             let peerNode:MCNode = MCNode(connectedpeerID.displayName, mcPeerID: connectedpeerID)
             
-            // make sure this is you!
-            if(myPeerID != selfNode.mcPeerID) {
+            if myPeerID != selfNode.mcPeerID {
                 self.MCLog("ERROR: Node id: " + selfNode.mcPeerID.displayName + " does not match peerID: " + myPeerID.displayName + ".")
             }
             
@@ -90,8 +89,7 @@ open class MobileCloud {
             let selfNode:MCNode = MCNode.getMe()
             let peerNode:MCNode = MCNode(disconnectedpeerID.displayName, mcPeerID: disconnectedpeerID)
             
-            // make sure this is you!
-            if(myPeerID != selfNode.mcPeerID) {
+            if myPeerID != selfNode.mcPeerID {
                 self.MCLog("ERROR: Node id: " + selfNode.mcPeerID.displayName + " does not match peerID: " + myPeerID.displayName + ".")
             }
             
@@ -118,7 +116,7 @@ open class MobileCloud {
             let dataReceived = NSKeyedUnarchiver.unarchiveObject(with: object as! Data) as! [String: NSObject]
             
             // TODO: save the content somewhere
-            let content:String = dataReceived["content"] as! String
+            // let content:String = dataReceived["content"] as! String
             
             let timer:Date = dataReceived["time"] as! Date
 
@@ -169,12 +167,12 @@ open class MobileCloud {
             }
         }
         
+        // when a websocket is connected
         onCloudletConnect = { (myPeerID: MCPeerID, cloudlet: Cloudlet) -> Void in
             let selfNode:MCNode = MCNode.getMe()
             let cloudletNode:Cloudlet = Cloudlet(name:cloudlet.displayName, cloudletURL: "")
             
-            // make sure this is you!
-            if(myPeerID != selfNode.mcPeerID) {
+            if myPeerID != selfNode.mcPeerID {
                 self.MCLog("ERROR: Node id: " + selfNode.mcPeerID.displayName + " does not match peerID: " + myPeerID.displayName + ".")
             }
             
