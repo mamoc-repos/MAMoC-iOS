@@ -1,18 +1,17 @@
 # Uncomment this line to define a global platform for your project
-# platform :ios, '9.0'
 
 target 'MobileCloud' do
   # Comment this line if you're not using Swift and don't want to use dynamic frameworks
+  platform :ios, '10.0'
   use_frameworks!
 
   # Pods for MobileCloud
-	pod "Luminous"
-	pod 'SystemServices', '~> 1.1.1'	
-	pod 'Starscream', '~> 2.0.3'
-  target 'MobileCloudTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
+	pod 'Luminous'
+	pod 'SystemServices', '~> 2.0.1'
+    
+    pod 'Swamp', :path => './libraries/'
+#    pod 'Quick'
+#    pod 'Nimble'
 
 end
 

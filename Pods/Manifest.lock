@@ -1,21 +1,31 @@
 PODS:
-  - Deviice (0.50.00)
-  - Luminous (1.0.0):
+  - CryptoSwift (1.0.0)
+  - Deviice (1.01)
+  - Luminous (1.10):
     - Deviice
-  - Starscream (2.0.4)
-  - SystemServices (1.1.1)
+  - Starscream (3.1.0)
+  - Swamp (0.2.0):
+    - CryptoSwift
+    - Starscream
+  - SystemServices (2.0.1)
 
 DEPENDENCIES:
   - Luminous
-  - Starscream (~> 2.0.3)
-  - SystemServices (~> 1.1.1)
+  - Swamp (from `./libraries/`)
+  - SystemServices (~> 2.0.1)
+
+EXTERNAL SOURCES:
+  Swamp:
+    :path: ./libraries/
 
 SPEC CHECKSUMS:
-  Deviice: c198e96944bf0b370c9c753f51f952da996c767f
-  Luminous: 591485def5858499dd0b3733f7d494baf1e0e3e3
-  Starscream: df5974ee928b157c8eda8af8de7c620276b7dfcc
-  SystemServices: cc55971fb9b1a5b01ad11e6ae0f46483ca5affa5
+  CryptoSwift: d81eeaa59dc5a8d03720fe919a6fd07b51f7439f
+  Deviice: 3b909d7149547f07914c8599ce43093b0cea12fb
+  Luminous: 347aec0bcb7bac264dbef32f45bd531de0279df6
+  Starscream: 08172b481e145289c4930cb567230fb55897cfa4
+  Swamp: d2df804f3b1dc63819d8da8736607334efebb6d5
+  SystemServices: 7af348493ece8951449b476c41532df72569b181
 
-PODFILE CHECKSUM: 8e2092220cecd37be637dbd00cf8eae8d70f1075
+PODFILE CHECKSUM: cae9e53bc1e470949fc7ee57c4f91a77bb572ed4
 
-COCOAPODS: 1.3.0
+COCOAPODS: 1.4.0

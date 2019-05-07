@@ -166,13 +166,13 @@ open class Session: NSObject, MCSessionDelegate {
         // unused
     }
     
-    open func session(_ session: MCSession, didFinishReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, at localURL: URL, withError error: Error?) {
+    open func session(_ session: MCSession, didFinishReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, at localURL: URL?, withError error: Error?) {
         
         if error == nil {
             debugPrint("Error didFinishReceivingResourceWithName: \(String(describing: error))")
         }
         if (error != nil) {
-            delegate?.finishReceivingResource(session.myPeerID, resourceName: resourceName, fromPeer: peerID, atURL: localURL)
+            delegate?.finishReceivingResource(session.myPeerID, resourceName: resourceName, fromPeer: peerID, atURL: localURL!)
         }
     }
     

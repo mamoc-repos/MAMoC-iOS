@@ -30,7 +30,7 @@ class TextSearchViewController: UIViewController,UITextFieldDelegate {
         
         // log any info from text search jobs to our textbox
         SwiftEventBus.onMainThread(self, name: "text search log") { result in
-            let format: String = result.object as! String
+            let format: String = result?.object as! String
             self.searchLog(format)
         }
         
@@ -60,7 +60,7 @@ class TextSearchViewController: UIViewController,UITextFieldDelegate {
         
         debugPrint("task started!")
         
-        if(textSearchField.text != nil && (textSearchField.text?.characters.count)! > 0) {
+        if(textSearchField.text != nil && (textSearchField.text?.count)! > 0) {
             textSearchField.resignFirstResponder()
             searchLocal()
         }
@@ -81,7 +81,6 @@ class TextSearchViewController: UIViewController,UITextFieldDelegate {
         mc.execute(type:OffloadingType.cloudlet)
         
         textSearchField.resignFirstResponder()
-
     }
     
     @IBAction func searchCloud(_ sender: Any) {
@@ -107,7 +106,7 @@ class TextSearchViewController: UIViewController,UITextFieldDelegate {
             let currentTimestamp:String = dateFormater.string(from: Date());
             DispatchQueue.main.async {
                 self.logTextView.text.append(currentTimestamp + " " + format + "\n")
-                self.logTextView.scrollRangeToVisible(NSMakeRange(self.logTextView.text.characters.count - 1, 1));
+                self.logTextView.scrollRangeToVisible(NSMakeRange(self.logTextView.text.count - 1, 1));
             }
         }
     }

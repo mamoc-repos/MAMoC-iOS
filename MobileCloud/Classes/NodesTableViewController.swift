@@ -89,8 +89,8 @@ class NodesTableViewController: UIViewController {
         // TODO: FIX THIS TO USE CLOUD CLASS
         if !(ip.isEmpty) {
             MobileCloud.MCInstance.cloudletInstance = Cloudlet(name: "remote cloud", cloudletURL: ip)
-            MobileCloud.MCInstance.cloudletInstance.webSocket.connect()
-            setupWebSocketSettings()
+            MobileCloud.MCInstance.cloudletInstance.swampSession.connect()
+//            setupWebSocketSettings()
             remoteCloudTextField.resignFirstResponder()
             
             // MARK: TEMPORARY
@@ -114,60 +114,60 @@ class NodesTableViewController: UIViewController {
         // use user provided cloudlet IP address, otherwise use default cloudlet IP address
         if !(ip.isEmpty) {
             MobileCloud.MCInstance.cloudletInstance = Cloudlet(name: "cloudlet", cloudletURL: ip)
-            MobileCloud.MCInstance.cloudletInstance.webSocket.connect()
-            setupWebSocketSettings()
+//            MobileCloud.MCInstance.cloudletInstance.swampSession.connect()
+//            setupWebSocketSettings()
             cloudletTextField.resignFirstResponder()
         }
     }
 
-    func setupWebSocketSettings() {
-        
-        let webSocket = MobileCloud.MCInstance.cloudletInstance.webSocket!
-        
-        //set this you want to ignore SSL cert validation, so a self signed SSL certificate can be used.
-        webSocket.disableSSLCertValidation = true
-        
-        // MARK: Web sockets delegate
-        
-        webSocket.onConnect = { [webSocket] in
-            webSocket.write(string:"{\"username\":\"\(myName)\"}")
-        }
-        
-        webSocket.onText = { [unowned self] text in
-            guard let data = text.data(using: String.Encoding.utf8) else { return }
-            guard let js = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) as! NSDictionary else { return }
-            guard let content = js["message"] as? String
-                else { return }
-            if content == myName + " is connected" {
-                
-                isCloudletConnected = true
-                
-                self.CloudletConnected.text = "Connected"
-                self.CloudletConnected.textColor = UIColor.green
-                
-                // disable both the textfield and button
-                self.cloudletButton.isEnabled = false
-                self.cloudletTextField.isEnabled = false
-                
-                self.view.setNeedsDisplay()
-            }
-        }
-        
-        webSocket.onDisconnect = { [unowned self] err in
-            
-            isCloudletConnected = false
-            
-            self.CloudletConnected.text = "Not Connected"
-            self.CloudletConnected.textColor = UIColor.red
-            self.cloudletTextField.text = ""
-            
-            // enable both the textfield and button
-            self.cloudletButton.isEnabled = true
-            self.cloudletTextField.isEnabled = true
-            
-            self.view.setNeedsDisplay()
-        }
-    }
+//    func setupWebSocketSettings() {
+//
+//        let webSocket = MobileCloud.MCInstance.cloudletInstance.swampSession!
+//
+//        //set this you want to ignore SSL cert validation, so a self signed SSL certificate can be used.
+//        webSocket.disableSSLCertValidation = true
+//
+//        // MARK: Web sockets delegate
+//
+//        webSocket.onConnect = { [webSocket] in
+//            webSocket.write(string:"{\"username\":\"\(myName)\"}")
+//        }
+//
+//        webSocket.onText = { [unowned self] text in
+//            guard let data = text.data(using: String.Encoding.utf8) else { return }
+//            guard let js = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) as! NSDictionary else { return }
+//            guard let content = js["message"] as? String
+//                else { return }
+//            if content == myName + " is connected" {
+//
+//                isCloudletConnected = true
+//
+//                self.CloudletConnected.text = "Connected"
+//                self.CloudletConnected.textColor = UIColor.green
+//
+//                // disable both the textfield and button
+//                self.cloudletButton.isEnabled = false
+//                self.cloudletTextField.isEnabled = false
+//
+//                self.view.setNeedsDisplay()
+//            }
+//        }
+//
+//        webSocket.onDisconnect = { [unowned self] err in
+//
+//            isCloudletConnected = false
+//
+//            self.CloudletConnected.text = "Not Connected"
+//            self.CloudletConnected.textColor = UIColor.red
+//            self.cloudletTextField.text = ""
+//
+//            // enable both the textfield and button
+//            self.cloudletButton.isEnabled = true
+//            self.cloudletTextField.isEnabled = true
+//
+//            self.view.setNeedsDisplay()
+//        }
+//    }
 }
 
 extension NodesTableViewController: UITableViewDelegate, UITableViewDataSource {

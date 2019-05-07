@@ -56,11 +56,12 @@ open class TSJob: MCJob {
 //        }
         
         // search half of the file
-        endIndex = textToSearch.characters.index(textToSearch.startIndex, offsetBy:(numberOfCharacters))
+        endIndex = textToSearch.index(textToSearch.startIndex, offsetBy:(numberOfCharacters))
         
         debugPrint("startIndex \(startIndex), endIndex \(endIndex)")
         
-        return textToSearch[startIndex..<endIndex]
+        return String(textToSearch[startIndex..<endIndex])
+
     }
     
     open override func executeTask(_ node:MCNode, fromNode:MCNode, task: MCTask) -> TSResult {

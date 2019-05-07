@@ -94,7 +94,7 @@ public struct Luminous {
                         let rec = unsafeBitCast(interfaceName, to: AnyObject.self)
                         let unsafeInterfaceData = CNCopyCurrentNetworkInfo("\(rec)" as CFString)
                         if unsafeInterfaceData != nil {
-                            let interfaceData = unsafeInterfaceData! as Dictionary!
+                            let interfaceData = unsafeInterfaceData! as Dictionary?
                             for dictData in interfaceData! {
                                 if dictData.key as! String == "SSID" {
                                     currentSSID = dictData.value as! String
@@ -256,19 +256,19 @@ public struct Luminous {
             }
             
             /// Physical memory of the device in megabytes
-            public static func physicalMemory (withSizeScale sizeScale: LMSizeScale) -> Float {
+            public static func physicalMemory(withSizeScale sizeScale: LMSizeScale) -> Float {
                 
-                let physicalMemory = ProcessInfo().physicalMemory
+                let physicalMemory = Float(ProcessInfo().physicalMemory)
                 
                 switch sizeScale {
                 case .bytes:
-                    return Float(physicalMemory)
+                    return physicalMemory
                 case .kilobytes:
-                    return Float(physicalMemory * 1024)
+                    return physicalMemory / 1024
                 case .megabytes:
-                    return Float(physicalMemory * 1024 * 1024)
+                    return physicalMemory / 1024 / 1024
                 case .gigabytes:
-                    return Float(physicalMemory * 1024 * 1024 * 1024)
+                    return physicalMemory / 1024 / 1024 / 1024
                 }
             }
             
@@ -407,17 +407,17 @@ public struct Luminous {
                 }
                 
                 /// Check if headphones are plugged in
-                public static var isHeadsetPluggedIn: Bool {
-                    // !!!: Thanks to Antonio E., this code is coming from this SO answer : http://stackoverflow.com/a/21382748/588967 . I've only translated it in Swift
-                    let route = AVAudioSession.sharedInstance().currentRoute
-                    
-                    for desc in route.outputs {
-                        if desc.portType == AVAudioSessionPortHeadphones {
-                            return true
-                        }
-                    }
-                    return false
-                }
+//                public static var isHeadsetPluggedIn: Bool {
+//                    // !!!: Thanks to Antonio E., this code is coming from this SO answer : http://stackoverflow.com/a/21382748/588967 . I've only translated it in Swift
+//                    let route = AVAudioSession.sharedInstance().currentRoute
+//
+//                    for desc in route.outputs {
+//                        if desc.portType == AVAudioSession.Port.headphones {
+//                            return true
+//                        }
+//                    }
+//                    return false
+//                }
             }
             
             
@@ -479,7 +479,7 @@ public struct Luminous {
             
             /// The used disk space in string format (megabytes)
             public static var usedSpace: String {
-                return ByteCountFormatter.string(fromByteCount: freeSpaceInBytes, countStyle: ByteCountFormatter.CountStyle.binary)
+                return ByteCountFormatter.string(fromByteCount: usedSpaceInBytes, countStyle: ByteCountFormatter.CountStyle.binary)
             }
             
             /// The total disk space in bytes. 0 if something went wrong
@@ -603,30 +603,3 @@ public struct Luminous {
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

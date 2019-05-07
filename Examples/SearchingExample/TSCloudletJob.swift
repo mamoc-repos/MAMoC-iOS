@@ -8,15 +8,16 @@
 
 import Foundation
 import MobileCloud
+import Swamp
 
 public class TSCloudletJob: CloudletJob {
     
     var searchTerm:String?
     var textToSearch:String = ""
     
-    public override init() {
-        super.init()
-    }
+//    public override init() {
+//        super.init()
+//    }
     
     open override func id() -> UInt32 {
         return 4149558881
@@ -34,6 +35,7 @@ public class TSCloudletJob: CloudletJob {
     open override func executeTask(_ cloudlet:Cloudlet, task: MCTask) {
         let searchTask:TSTask = task as! TSTask
         cloudlet.send(json:"{\"TextSearch\":\"\(searchTask.searchTerm)\", \"start\":0, \"end\":0}")
+        debugPrint("{\"TextSearch\":\"\(searchTask.searchTerm)\", \"start\":0, \"end\":0}")
     }
     
     open func searchLog(_ format:String) {

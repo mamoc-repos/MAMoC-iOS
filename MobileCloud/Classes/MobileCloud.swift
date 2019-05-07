@@ -16,7 +16,7 @@ protocol MCManagerDelegate {
 }
 
 open class MobileCloud {
-    open static let MCInstance = MobileCloud() // singleton
+    public static let MCInstance = MobileCloud() // singleton
     
     fileprivate var job: MCJob = MCJob()
     fileprivate var cloudletJob: CloudletJob = CloudletJob()
@@ -40,7 +40,7 @@ open class MobileCloud {
     
     fileprivate var allLocalNodes: [MCNode] { return [MCNode.getMe()] + connectedNodes }
 
-    // TODO: create session to manage multiple cloudlets
+    //TODO: create session to manage multiple cloudlets
     // open var allCloudlets: [Cloudlet]
     
     public var cloudletInstance: Cloudlet!
@@ -48,7 +48,7 @@ open class MobileCloud {
     // MARK: Start
     public func start() {
         // for nearby iOS devices
-        let ServiceType:String = "MC2017"
+        let ServiceType:String = "MAMoC"
         self.MCLog("Searching for peers with service type " + ServiceType)
         transceiver.startTransceiving(serviceType: ServiceType)
         
@@ -237,25 +237,25 @@ open class MobileCloud {
             nodeToCloudletRoundTripTimer["cloudlet"]![self.cloudletInstance]?.start()
         }
         
-        self.cloudletInstance.webSocket.onText = { [unowned self] text in
-            guard let data = text.data(using: String.Encoding.utf8) else { return }
-            guard let js = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) as! NSDictionary else { return }
-            guard let result = js["result"] as? Int, let time = js["timeInSec"] as? Double
-                else { return }
-            
-            self.MCLog(self.cloudletInstance.displayName + " returned the result: \(result) in \(time) seconds")
-            
-            lock.sync {
-            //    let cloudletRoundTripTime = nodeToCloudletRoundTripTimer["cloudlet"]![self.cloudletInstance]?.stop()
-                let _ = self.executionTimer.stop()
-
-                self.MCLog(String(describing: self.cloudletInstance.url) + " network overhead: " + String(format: "%.3f", self.executionTimer.getElapsedTimeInSeconds() - time) + " seconds.")
-
-                self.MCLog("Total execution time for " + self.cloudletJob.name() + ": " + String(format: "%.3f", self.executionTimer.getElapsedTimeInSeconds()) + " seconds.")
-            
-                nodeToCloudletRoundTripTimer.removeValue(forKey: "cloudlet")
-            }
-        }
+//        self.cloudletInstance.webSocket.onText = { [unowned self] text in
+//            guard let data = text.data(using: String.Encoding.utf8) else { return }
+//            guard let js = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) as! NSDictionary else { return }
+//            guard let result = js["result"] as? Int, let time = js["timeInSec"] as? Double
+//                else { return }
+//
+//            self.MCLog(self.cloudletInstance.displayName + " returned the result: \(result) in \(time) seconds")
+//
+//            lock.sync {
+//            //    let cloudletRoundTripTime = nodeToCloudletRoundTripTimer["cloudlet"]![self.cloudletInstance]?.stop()
+//                let _ = self.executionTimer.stop()
+//
+//                self.MCLog(self.cloudletInstance.url.absoluteString + " network overhead: " + String(format: "%.3f", self.executionTimer.getElapsedTimeInSeconds() - time) + " seconds.")
+//
+//                self.MCLog("Total execution time for " + self.cloudletJob.name() + ": " + String(format: "%.3f", self.executionTimer.getElapsedTimeInSeconds()) + " seconds.")
+//
+//                nodeToCloudletRoundTripTimer.removeValue(forKey: "cloudlet")
+//            }
+//        }
     }
     
     func executeOnRemote(){
@@ -429,8 +429,6 @@ open class MobileCloud {
         return status
     }
     
-    
-    
     func runBenchmarkWorkload(){
         debugPrint("starting benchmarking")
         
@@ -503,7 +501,7 @@ open class MobileCloud {
                 if self.connectedNodes.count > 1 {
                     sendFileToNearbyNodes(f: f)
                 }
-                if self.cloudletInstance.webSocket.isConnected {
+                if self.cloudletInstance.swampSession.isConnected() {
                     sendFileToCloudlet(f:f)
                 }
             }
@@ -552,16 +550,16 @@ open class MobileCloud {
         
         self.cloudletInstance.send(json:"{\"ExecutionData\":\"\(trimmedContent)\", \"start\":0, \"end\":0}")
         
-        self.cloudletInstance.webSocket.onText = { [unowned self] text in
-            
-            guard let data = text.data(using: String.Encoding.utf8) else { return }
-            guard let js = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) as! NSDictionary else { return }
-            guard let result = js["result"] as? Int
-                else { return }
-            print(result)
-            let timer = startTimer.timeIntervalSinceNow
-            print("Data sent to \(self.cloudletInstance.displayName) in \(abs(timer)) seconds")
-        }
+//        self.cloudletInstance.webSocket.onText = { [unowned self] text in
+//
+//            guard let data = text.data(using: String.Encoding.utf8) else { return }
+//            guard let js = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) as! NSDictionary else { return }
+//            guard let result = js["result"] as? Int
+//                else { return }
+//            print(result)
+//            let timer = startTimer.timeIntervalSinceNow
+//            print("Data sent to \(self.cloudletInstance.displayName) in \(abs(timer)) seconds")
+//        }
     }
 
 }

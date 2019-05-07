@@ -24,7 +24,7 @@ class Utils {
     }
     
     class func getProcessorSpeed() -> Int {
-        return system.processorSpeed
+        return Luminous.System.Hardware.activeProcessorsNumber
     }
     
     class func getTotalMemory() -> Double {

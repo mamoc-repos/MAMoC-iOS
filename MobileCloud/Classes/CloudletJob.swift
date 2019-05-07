@@ -8,10 +8,10 @@
 
 import Foundation
 
-open class CloudletJob {
-    public init(){
-        
-    }
+open class CloudletJob: NSObject {
+//    public init(){
+//        
+//    }
     
     open func id() -> UInt32 {
         return 4229232399
